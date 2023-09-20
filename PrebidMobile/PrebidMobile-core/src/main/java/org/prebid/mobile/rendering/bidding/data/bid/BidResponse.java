@@ -245,15 +245,16 @@ public class BidResponse {
     }
 
     private boolean hasWinningKeywords(Prebid prebid) {
-        if (prebid == null || prebid.getTargeting().isEmpty()) {
-            return false;
-        }
-        HashMap<String, String> targeting = prebid.getTargeting();
-        boolean result = targeting.containsKey("hb_pb") && targeting.containsKey("hb_bidder");
-        if (usesCache) {
-            result = result && targeting.containsKey("hb_cache_id");
-        }
-        return result;
+        return true;
+//        if (prebid == null || prebid.getTargeting().isEmpty()) {
+//            return false;
+//        }
+//        HashMap<String, String> targeting = prebid.getTargeting();
+//        boolean result = targeting.containsKey("hb_pb") && targeting.containsKey("hb_bidder");
+//        if (usesCache) {
+//            result = result && targeting.containsKey("hb_cache_id");
+//        }
+//        return result;
     }
 
     @NonNull
