@@ -630,8 +630,17 @@ public class BannerView extends FrameLayout {
         removeAllViews();
 
         final Pair<Integer, Integer> sizePair = bidResponse.getWinningBidWidthHeightPairDips(getContext());
+        int width = sizePair.first;
+        int height = sizePair.second;
+        if ((width == 0 || height == 0) && adUnitConfig.getSizes().size() > 0) {
+            for (AdSize adSize : adUnitConfig.getSizes()) {
+                width = adSize.getWidth();
+                height = adSize.getHeight();
+                break;
+            }
+        }
         displayView = new DisplayView(getContext(), displayViewListener, displayVideoListener, adUnitConfig, bidResponse);
-        addView(displayView, sizePair.first, sizePair.second);
+        addView(displayView, width, height);
     }
 
     private void displayAdServerView(View view) {
