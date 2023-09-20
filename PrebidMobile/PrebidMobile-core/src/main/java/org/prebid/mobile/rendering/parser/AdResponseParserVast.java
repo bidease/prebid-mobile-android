@@ -668,6 +668,10 @@ public class AdResponseParserVast extends AdResponseParserBase {
      * Searches through ArrayList of Tracking for a specific event
      */
     public static org.prebid.mobile.rendering.video.vast.Tracking findTracking(ArrayList<org.prebid.mobile.rendering.video.vast.Tracking> trackingEvents) {
+        if (trackingEvents == null) {
+            return null;
+        }
+
         for (org.prebid.mobile.rendering.video.vast.Tracking tracking : trackingEvents) {
             if (tracking.getEvent().equals("creativeView")) {
                 return tracking;
