@@ -110,6 +110,7 @@ public class PrebidWebViewBanner extends PrebidWebViewBase
         //A null context can crash with an exception in webView creation through WebViewBanner. Catch it
         webView = new WebViewBanner(context, html, width, height, this, this);
         webView.setJSName("1part");
+        webView.setDomain(creative.getCreativeModel().getAdomain());
         webView.initContainsIFrame(creative.getCreativeModel().getHtml());
         webView.setTargetUrl(creative.getCreativeModel().getTargetUrl());
         webView.loadAd();

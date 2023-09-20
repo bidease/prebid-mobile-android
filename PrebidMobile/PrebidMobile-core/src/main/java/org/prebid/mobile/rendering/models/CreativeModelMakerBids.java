@@ -108,9 +108,13 @@ public class CreativeModelMakerBids {
 
         Bid bid = bidResponse.getWinningBid();
         String adHtml = getAdHtml(adConfiguration, bid);
+        String adomain = bid.getAdomain() != null && bid.getAdomain().length > 0
+                ? bid.getAdomain()[0]
+                : null;
 
         CreativeModel model = new CreativeModel(TrackingManager.getInstance(), new OmEventTracker(), adConfiguration);
         model.setName("HTML");
+        model.setAdomain(adomain);
         model.setHtml(adHtml);
         model.setWidth(bid != null ? bid.getWidth() : 0);
         model.setHeight(bid != null ? bid.getHeight() : 0);

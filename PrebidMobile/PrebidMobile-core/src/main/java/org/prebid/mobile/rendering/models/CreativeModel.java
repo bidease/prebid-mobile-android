@@ -55,6 +55,9 @@ public class CreativeModel {
     //all - creative html
     private String html;
 
+    @Nullable
+    private String adomain;
+
     @Nullable private Integer refreshMax;
 
     HashMap<TrackingEvent.Events, ArrayList<String>> trackingURLs = new HashMap<>();
@@ -188,6 +191,15 @@ public class CreativeModel {
 
     public void setHtml(String html) {
         this.html = html;
+    }
+
+    public void setAdomain(@Nullable  String adomain) {
+        this.adomain = adomain;
+    }
+
+    @Nullable
+    public String getAdomain() {
+        return adomain;
     }
 
     @Nullable
