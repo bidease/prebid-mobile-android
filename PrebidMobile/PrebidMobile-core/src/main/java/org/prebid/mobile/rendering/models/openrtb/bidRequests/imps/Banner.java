@@ -29,11 +29,18 @@ public class Banner extends BaseBid {
 
     public Integer pos = null;
     public int[] api;
+    public int w;
+    public int h;
 
     private HashSet<Format> formats = new HashSet<>();
 
     public JSONObject getJsonObject() throws JSONException {
         JSONObject jsonObject = new JSONObject();
+
+        if (w != 0 && h != 0) {
+            toJSON(jsonObject, "w", this.w);
+            toJSON(jsonObject, "h", this.h);
+        }
 
         toJSON(jsonObject, "pos", this.pos);
 

@@ -336,10 +336,16 @@ public class BasicParameterBuilder extends ParameterBuilder {
 
         if (adConfiguration.isAdType(AdFormat.BANNER)) {
             for (AdSize size : adConfiguration.getSizes()) {
+                if (banner.w == 0 && banner.h == 0) {
+                    banner.w = size.getWidth();
+                    banner.h = size.getHeight();
+                }
                 banner.addFormat(size.getWidth(), size.getHeight());
             }
         } else if (adConfiguration.isAdType(AdFormat.INTERSTITIAL) && resources != null) {
             Configuration deviceConfiguration = resources.getConfiguration();
+            banner.w = deviceConfiguration.screenWidthDp;
+            banner.h = deviceConfiguration.screenHeightDp;
             banner.addFormat(deviceConfiguration.screenWidthDp, deviceConfiguration.screenHeightDp);
         }
 
@@ -391,8 +397,12 @@ public class BasicParameterBuilder extends ParameterBuilder {
          *  "displaymanager": "MTG",
          *  "displaymanagerver": "6.12.1"
          */
-        imp.displaymanager = "MTG";//adConfiguration.isOriginalAdUnit() ? null : DISPLAY_MANAGER_VALUE;
-        imp.displaymanagerver = "7.0.1";//adConfiguration.isOriginalAdUnit() ? null : SDK_VERSION;
+//        imp.displaymanager = adConfiguration.isOriginalAdUnit() ? null : DISPLAY_MANAGER_VALUE;
+        imp.displaymanager = "MTG";
+//        imp.displaymanager = "bidease";
+//        imp.displaymanagerver = adConfiguration.isOriginalAdUnit() ? null : SDK_VERSION;
+        imp.displaymanagerver = "7.0.1";
+//        imp.displaymanagerver = "1.0.0";
     }
 
     private int[] getApiFrameworks() {
