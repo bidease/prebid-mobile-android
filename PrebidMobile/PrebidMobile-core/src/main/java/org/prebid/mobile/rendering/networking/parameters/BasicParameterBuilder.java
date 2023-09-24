@@ -63,7 +63,7 @@ public class BasicParameterBuilder extends ParameterBuilder {
             "video/webm",
             "video/mkv"};
 
-    static final String DISPLAY_MANAGER_VALUE = "prebid-mobile";
+    static final String DISPLAY_MANAGER_VALUE = "beconnect";
     static final String KEY_OM_PARTNER_NAME = "omidpn";
     static final String KEY_OM_PARTNER_VERSION = "omidpv";
     static final String KEY_DEEPLINK_PLUS = "dlp";
@@ -393,16 +393,8 @@ public class BasicParameterBuilder extends ParameterBuilder {
     }
 
     private void setDisplayManager(Imp imp) {
-        /**
-         *  "displaymanager": "MTG",
-         *  "displaymanagerver": "6.12.1"
-         */
-//        imp.displaymanager = adConfiguration.isOriginalAdUnit() ? null : DISPLAY_MANAGER_VALUE;
-        imp.displaymanager = "MTG";
-//        imp.displaymanager = "bidease";
-//        imp.displaymanagerver = adConfiguration.isOriginalAdUnit() ? null : SDK_VERSION;
-        imp.displaymanagerver = "7.0.1";
-//        imp.displaymanagerver = "1.0.0";
+        imp.displaymanager = adConfiguration.isOriginalAdUnit() ? null : DISPLAY_MANAGER_VALUE;
+        imp.displaymanagerver = adConfiguration.isOriginalAdUnit() ? null : SDK_VERSION;
     }
 
     private int[] getApiFrameworks() {
