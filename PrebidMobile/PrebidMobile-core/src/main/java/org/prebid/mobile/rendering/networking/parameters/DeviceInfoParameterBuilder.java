@@ -66,7 +66,6 @@ public class DeviceInfoParameterBuilder extends ParameterBuilder {
             device.osv = Build.VERSION.RELEASE;
             device.language = Locale.getDefault().getLanguage();
             device.ua = AppInfoManager.getUserAgent();
-            device.ip = "185.240.17.145";
 
             // lmt and APP_ADVERTISING_ID_ENABLED are opposites
             boolean lmt = AdIdManager.isLimitAdTrackingEnabled();
