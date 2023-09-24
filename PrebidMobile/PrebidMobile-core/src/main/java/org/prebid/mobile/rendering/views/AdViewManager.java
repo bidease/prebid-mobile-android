@@ -17,6 +17,8 @@
 package org.prebid.mobile.rendering.views;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
@@ -102,6 +104,12 @@ public class AdViewManager implements CreativeViewListener, TransactionManagerLi
 
     @Override
     public void creativeWasClicked(AbstractCreative creative, String url) {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        Context context = contextReference.get();
+        if (context != null) {
+            context.startActivity(i);
+        }
         adViewListener.creativeClicked(url);
     }
 
