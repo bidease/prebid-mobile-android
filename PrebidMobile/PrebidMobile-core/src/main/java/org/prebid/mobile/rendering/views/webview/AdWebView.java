@@ -87,11 +87,11 @@ public class AdWebView extends WebView {
             screenHeight = Utils.getScreenHeight(windowManager);
         }
 
-        if (this instanceof WebViewInterstitial) {
-            calculateScaleForResize(screenWidth, screenHeight, width, height);
-        } else {
+//        if (this instanceof WebViewInterstitial) {
+//            calculateScaleForResize(screenWidth, screenHeight, width, height);
+//        } else {
             webSettings.setLoadWithOverviewMode(true);
-        }
+//        }
 
         initBaseWebSettings(webSettings);
         if (Utils.atLeastKitKat()) {

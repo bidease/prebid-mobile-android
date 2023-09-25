@@ -283,17 +283,20 @@ public class WebViewBase extends AdWebView implements AdAssetsLoadedListener {
     }
 
     private String createAdHTML(String originalHtml) {
-        String meta = buildViewportMetaTag();
-        String centerAdStyle = "<style type='text/css'>html,body {margin: 0;padding: 0;width: 100%;height: 100%;}html {display: table;}body {display: table-cell;vertical-align: middle;text-align: center;}</style>";
+        boolean validHtml = originalHtml.trim().startsWith("<!DOCTYPE")
+                || originalHtml.trim().startsWith("<html");
+        if (!validHtml) {
+            String meta = buildViewportMetaTag();
+            String centerAdStyle = "<style type='text/css'>html,body {margin: 0;padding: 0;width: 100%;height: 100%;}html {display: table;}body {display: table-cell;vertical-align: middle;text-align: center;}</style>";
+            originalHtml = "<html><head>"
 
-        originalHtml = "<html><head>" + meta
+                    + "<body>"
+                    + centerAdStyle
 
-                       + "<body>"
-                       + centerAdStyle
+                    + originalHtml
 
-                       + originalHtml
-
-                       + "</body></html>";
+                    + "</body></html>";
+        }
         return originalHtml;
     }
 
