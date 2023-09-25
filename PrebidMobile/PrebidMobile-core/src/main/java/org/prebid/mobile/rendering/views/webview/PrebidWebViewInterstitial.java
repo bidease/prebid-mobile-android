@@ -40,6 +40,7 @@ public class PrebidWebViewInterstitial extends PrebidWebViewBase
         //A null context can crash with an exception in webView creation through WebViewBanner. Catch it
         webView = new WebViewInterstitial(context, html, width, height, this, this);
         webView.setJSName("WebViewInterstitial");
+        webView.setDomain(creative.getCreativeModel().getAdomain());
         webView.initContainsIFrame(creative.getCreativeModel().getHtml());
         webView.setTargetUrl(creative.getCreativeModel().getTargetUrl());
         webView.loadAd();
