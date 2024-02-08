@@ -192,4 +192,8 @@ public class TransactionManager implements AdLoadListener, Transaction.Listener 
         }
         listener.onFetchingFailed(e);
     }
+
+    public void trackDisplay() {
+        creativeModelMakerBids.trackDisplay();
+    }
 }

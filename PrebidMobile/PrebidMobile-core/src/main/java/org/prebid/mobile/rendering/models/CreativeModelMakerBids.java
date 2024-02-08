@@ -20,6 +20,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.prebid.mobile.LogUtil;
 import org.prebid.mobile.api.data.AdFormat;
@@ -30,6 +31,7 @@ import org.prebid.mobile.rendering.bidding.data.bid.BidResponse;
 import org.prebid.mobile.rendering.loading.AdLoadListener;
 import org.prebid.mobile.rendering.loading.VastParserExtractor;
 import org.prebid.mobile.rendering.models.internal.VastExtractorResult;
+import org.prebid.mobile.rendering.networking.DisplayNotifier;
 import org.prebid.mobile.rendering.networking.tracking.TrackingManager;
 import org.prebid.mobile.rendering.sdk.JSLibraryManager;
 import org.prebid.mobile.rendering.sdk.PrebidContextHolder;
@@ -45,6 +47,9 @@ public class CreativeModelMakerBids {
     private final VastParserExtractor parserExtractor = new VastParserExtractor(this::handleExtractorResult);
 
     private AdUnitConfiguration adConfiguration;
+
+    @Nullable
+    private DisplayNotifier displayNotifier = null;
 
     public CreativeModelMakerBids(
             @NonNull AdLoadListener listener
@@ -78,6 +83,8 @@ public class CreativeModelMakerBids {
             notifyErrorListener("JS libraries has not been downloaded yet. Starting downloading...");
             return;
         }
+
+        displayNotifier = new DisplayNotifier(winningBid.getBurl());
 
         if (bidResponse.isVideo()) {
             makeVideoModels(adConfiguration, winningBid.getAdm());
@@ -150,5 +157,13 @@ public class CreativeModelMakerBids {
 
         CreativeModelsMaker modelsMaker = new CreativeModelsMakerVast(loadIdentifier, listener);
         modelsMaker.makeModels(adConfiguration, result.getVastResponseParserArray());
+    }
+
+    public void trackDisplay() {
+        if (displayNotifier == null) {
+            return;
+        }
+        displayNotifier.notifyDisplay();
+        displayNotifier = null;
     }
 }

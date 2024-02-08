@@ -412,6 +412,7 @@ public class AdViewManager implements CreativeViewListener, TransactionManagerLi
             return;
         }
 
+        trackDisplay();
         if (adConfiguration.isAdType(AdFormat.BANNER)) {
             if (!currentCreative.equals(lastCreativeShown)) {
                 displayCreative(creativeView);
@@ -420,6 +421,10 @@ public class AdViewManager implements CreativeViewListener, TransactionManagerLi
             return;
         }
         displayCreative(creativeView);
+    }
+
+    private void trackDisplay() {
+        transactionManager.trackDisplay();
     }
 
     private void displayCreative(View creativeView) {
