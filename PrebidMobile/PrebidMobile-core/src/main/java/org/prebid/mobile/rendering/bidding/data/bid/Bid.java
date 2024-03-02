@@ -171,7 +171,8 @@ public class Bid {
     }
 
     public String getBurl() {
-        return burl;
+        String bUrl = burl.replace("${AUCTION_PRICE}", Double.toString(price));
+        return bUrl;
     }
 
     public String getLurl() {
