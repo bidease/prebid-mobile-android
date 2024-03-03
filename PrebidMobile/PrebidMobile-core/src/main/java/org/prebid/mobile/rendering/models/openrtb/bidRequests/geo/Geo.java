@@ -16,6 +16,8 @@
 
 package org.prebid.mobile.rendering.models.openrtb.bidRequests.geo;
 
+import androidx.annotation.Nullable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.prebid.mobile.rendering.models.openrtb.bidRequests.BaseBid;
@@ -39,6 +41,8 @@ public class Geo extends BaseBid {
     public String city = null;
     public String zip = null;
     public Integer utcoffset = null;
+    @Nullable
+    public String countryAlpha3 = null;
 
     public JSONObject getJsonObject() throws JSONException {
         JSONObject jsonObject = new JSONObject();
@@ -54,6 +58,7 @@ public class Geo extends BaseBid {
         toJSON(jsonObject, "city", this.city);
         toJSON(jsonObject, "zip", this.zip);
         toJSON(jsonObject, "utcoffset", this.utcoffset);
+        toJSON(jsonObject, "country_alpha3", this.countryAlpha3);
         return jsonObject;
     }
 }

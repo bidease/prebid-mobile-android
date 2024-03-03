@@ -23,8 +23,11 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.telephony.TelephonyManager;
 
+import androidx.annotation.Nullable;
+
 import org.prebid.mobile.LogUtil;
 import org.prebid.mobile.PrebidMobile;
+import org.prebid.mobile.configuration.AdUnitConfiguration;
 import org.prebid.mobile.rendering.models.openrtb.bidRequests.geo.Geo;
 import org.prebid.mobile.rendering.sdk.ManagersResolver;
 import org.prebid.mobile.rendering.sdk.deviceData.managers.DeviceInfoManager;
@@ -34,6 +37,16 @@ import java.util.List;
 import java.util.Locale;
 
 public class GeoLocationParameterBuilder extends ParameterBuilder {
+    @Nullable
+    private final AdUnitConfiguration adUnitConfiguration;
+
+    public GeoLocationParameterBuilder() {
+        this(null);
+    }
+
+    public GeoLocationParameterBuilder(final @Nullable AdUnitConfiguration adUnitConfiguration) {
+        this.adUnitConfiguration = adUnitConfiguration;
+    }
 
     public static final int LOCATION_SOURCE_GPS = 1;
 
@@ -49,6 +62,14 @@ public class GeoLocationParameterBuilder extends ParameterBuilder {
             if (deviceManager != null && deviceManager.isPermissionGranted("android.permission.ACCESS_FINE_LOCATION")) {
                 setLocation(adRequestInput, locationInfoManager);
             }
+        }
+        setCountryAlpha3(adRequestInput);
+    }
+
+    private void setCountryAlpha3(AdRequestInput adRequestInput) {
+        Geo geo = adRequestInput.getBidRequest().getDevice().getGeo();
+        if (adUnitConfiguration != null && adUnitConfiguration.getCountryAlpha3() != null) {
+            geo.countryAlpha3 = adUnitConfiguration.getCountryAlpha3();
         }
     }
 

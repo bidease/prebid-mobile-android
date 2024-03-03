@@ -16,6 +16,8 @@
 
 package org.prebid.mobile.rendering.models.openrtb.bidRequests;
 
+import androidx.annotation.Nullable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.prebid.mobile.rendering.models.openrtb.bidRequests.imps.Banner;
@@ -36,6 +38,8 @@ public class Imp extends BaseBid {
     private Ext ext = null;
 
     public Integer clickBrowser = null;
+    @Nullable
+    public Double bidFloor = null;
 
     JSONObject jsonObject;
 
@@ -55,6 +59,8 @@ public class Imp extends BaseBid {
         toJSON(jsonObject, "native", (nativeObj != null) ? nativeObj.getJsonObject() : null);
         toJSON(jsonObject, "pmp", (pmp != null) ? pmp.getJsonObject() : null);
         toJSON(jsonObject, "ext", (ext != null) ? ext.getJsonObject() : null);
+
+        toJSON(jsonObject, "bidfloor", bidFloor);
 
         return jsonObject;
     }

@@ -390,6 +390,8 @@ public class BasicParameterBuilder extends ParameterBuilder {
 
         // TODO: 15.12.2020 uncomment when Prebid server will be able to process Ext content not related to bidders
         //imp.getExt().put(KEY_DEEPLINK_PLUS, 1);
+
+        imp.bidFloor = adConfiguration.getBidFloor();
     }
 
     private void setDisplayManager(Imp imp) {

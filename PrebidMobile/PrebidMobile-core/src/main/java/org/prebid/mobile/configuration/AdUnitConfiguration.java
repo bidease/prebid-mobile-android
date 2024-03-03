@@ -72,6 +72,13 @@ public class AdUnitConfiguration {
     private final Map<String, Set<String>> extDataDictionary = new HashMap<>();
     private final Set<String> extKeywordsSet = new HashSet<>();
 
+    @Nullable
+    private Double bidFloor = null;
+    @Nullable
+    private String ip = null;
+    @Nullable
+    private String countryAlpha3 = null;
+
 
     public void modifyUsingBidResponse(@Nullable BidResponse bidResponse) {
         if (bidResponse != null) {
@@ -483,6 +490,33 @@ public class AdUnitConfiguration {
 
     public String getFingerprint() {
         return fingerprint;
+    }
+
+    public void setBidFloor(@Nullable Double bidFloor) {
+        this.bidFloor = bidFloor;
+    }
+
+    @Nullable
+    public Double getBidFloor() {
+        return bidFloor;
+    }
+
+    public void setIp(@Nullable String ip) {
+        this.ip = ip;
+    }
+
+    @Nullable
+    public String getIp() {
+        return ip;
+    }
+
+    public void setCountryAlpha3(@Nullable String countryAlpha3) {
+        this.countryAlpha3 = countryAlpha3;
+    }
+
+    @Nullable
+    public String getCountryAlpha3() {
+        return countryAlpha3;
     }
 
     @Override

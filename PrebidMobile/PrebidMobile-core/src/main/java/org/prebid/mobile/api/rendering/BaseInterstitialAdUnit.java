@@ -76,6 +76,17 @@ public abstract class BaseInterstitialAdUnit {
 
     abstract void notifyErrorListener(AdException exception);
 
+    public void setBidFloor(@Nullable Double bidFloor) {
+        adUnitConfig.setBidFloor(bidFloor);
+    }
+
+    public void setCountryAlpha3(@Nullable String countryAlpha3) {
+        adUnitConfig.setCountryAlpha3(countryAlpha3);
+    }
+
+    public void setIp(@Nullable String ip) {
+        adUnitConfig.setIp(ip);
+    }
 
     /**
      * Executes ad loading if no request is running.

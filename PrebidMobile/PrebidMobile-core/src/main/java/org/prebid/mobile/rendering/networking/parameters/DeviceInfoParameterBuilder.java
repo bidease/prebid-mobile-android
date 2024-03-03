@@ -41,13 +41,20 @@ public class DeviceInfoParameterBuilder extends ParameterBuilder {
 
     @Override
     public void appendBuilderParameters(AdRequestInput adRequestInput) {
+        Device device = adRequestInput.getBidRequest().getDevice();
+        String ip = adConfiguration.getIp();
+        if (ip != null) {
+            if (ip.indexOf(':') >= 0) {
+                device.ipv6 = ip;
+            } else {
+                device.ip = ip;
+            }
+        }
         DeviceInfoManager deviceManager = ManagersResolver.getInstance().getDeviceManager();
         if (deviceManager != null) {
 
             int screenWidth = deviceManager.getScreenWidth();
             int screenHeight = deviceManager.getScreenHeight();
-
-            Device device = adRequestInput.getBidRequest().getDevice();
 
             device.pxratio = Utils.DENSITY;
             if (screenWidth > 0 && screenHeight > 0) {

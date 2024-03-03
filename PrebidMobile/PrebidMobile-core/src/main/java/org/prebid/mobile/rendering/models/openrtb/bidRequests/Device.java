@@ -28,7 +28,7 @@ public class Device extends BaseBid {
     private Integer dnt = null;
     public Integer lmt = null;
     public String ip = null;
-    private String ipv6 = null;
+    public String ipv6 = null;
 
     //TODO: ORTB2.5: auto detect this?
     public Integer devicetype = null;
