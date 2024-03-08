@@ -50,6 +50,9 @@ import org.prebid.mobile.rendering.views.webview.mraid.JsExecutor;
 import org.prebid.mobile.rendering.views.webview.mraid.Views;
 
 import java.lang.ref.WeakReference;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 //Class to show ad as an interstitial i.e, a fullscreen ad
 public abstract class AdBaseDialog extends Dialog {
@@ -81,6 +84,7 @@ public abstract class AdBaseDialog extends Dialog {
     protected int initialOrientation;
     private int screenVisibility;
     private int closeViewVisibility = View.GONE;
+    private int closeVisibleDelay = 0;
 
     private final FetchPropertiesHandler.FetchPropertyCallback expandPropertiesCallback = new FetchPropertiesHandler.FetchPropertyCallback() {
         @Override
@@ -129,6 +133,10 @@ public abstract class AdBaseDialog extends Dialog {
             }
             return false;
         });
+    }
+
+    public void setCloseVisibleDelay(int closeVisibleDelay) {
+        this.closeVisibleDelay = closeVisibleDelay;
     }
 
     public void setDialogListener(DialogEventListener listener) {
@@ -355,6 +363,16 @@ public abstract class AdBaseDialog extends Dialog {
         }
 
         closeView.setVisibility(closeViewVisibility);
+        if (closeViewVisibility == View.VISIBLE && closeVisibleDelay > 0) {
+            changeCloseViewVisibility(View.GONE);
+            ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+            executorService.schedule(() -> {
+                closeView.post(() -> {
+                    changeCloseViewVisibility(View.VISIBLE);
+                });
+                executorService.shutdown();
+            }, closeVisibleDelay, TimeUnit.SECONDS);
+        }
 
         Views.removeFromParent(closeView);
         adViewContainer.addView(closeView);

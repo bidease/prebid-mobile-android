@@ -34,6 +34,7 @@ public class InterstitialDisplayPropertiesInternal extends InterstitialDisplayPr
 
     public Position closeButtonPosition = Position.TOP_RIGHT;
     public Position skipButtonPosition = Position.TOP_RIGHT;
+    public int closeVisibleDelay = 0;
 
     public void resetExpandValues() {
         expandHeight = 0;

@@ -42,6 +42,7 @@ public class InterstitialLayoutConfigurator {
         displayProperties.isMuted = adConfiguration.isMuted();
         displayProperties.closeButtonArea = adConfiguration.getCloseButtonArea();
         displayProperties.closeButtonPosition = adConfiguration.getCloseButtonPosition();
+        displayProperties.closeVisibleDelay = adConfiguration.getCloseVisibleDelay();
         displayProperties.skipDelay = adConfiguration.getSkipDelay();
         displayProperties.skipButtonArea = adConfiguration.getSkipButtonArea();
         displayProperties.skipButtonPosition = adConfiguration.getSkipButtonPosition();

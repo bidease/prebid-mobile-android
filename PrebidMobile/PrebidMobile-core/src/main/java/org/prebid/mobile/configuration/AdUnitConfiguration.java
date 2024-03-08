@@ -57,6 +57,7 @@ public class AdUnitConfiguration {
     private String fingerprint = Utils.generateUUIDTimeBased();
 
     private Position closeButtonPosition = Position.TOP_RIGHT;
+    private int closeVisibleDelay = 0;
     private Position skipButtonPosition = Position.TOP_RIGHT;
     private AdSize minSizePercentage;
     private PlacementType placementType;
@@ -422,6 +423,14 @@ public class AdUnitConfiguration {
     @NonNull
     public Position getCloseButtonPosition() {
         return closeButtonPosition;
+    }
+
+    public void setCloseVisibleDelay(int closeVisibleDelay) {
+        this.closeVisibleDelay = closeVisibleDelay;
+    }
+
+    public int getCloseVisibleDelay() {
+        return closeVisibleDelay;
     }
 
     public void setVideoInitialVolume(float videoInitialVolume) {

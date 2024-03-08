@@ -193,6 +193,7 @@ public class InterstitialManager implements InterstitialManagerInterface {
         WebViewBase webViewBase = ((PrebidWebViewInterstitial) interstitialView.getCreativeView()).getWebView();
         webViewBase.setId(INTERSTITIAL_WEBVIEW_ID);
         interstitialDialog = new AdInterstitialDialog(context, webViewBase, interstitialView, this);
+        interstitialDialog.setCloseVisibleDelay(interstitialDisplayProperties.closeVisibleDelay);
         interstitialDialog.show();
     }
 

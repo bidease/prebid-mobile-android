@@ -350,6 +350,10 @@ public abstract class BaseInterstitialAdUnit {
         adUnitConfig.setCloseButtonPosition(closeButtonPosition);
     }
 
+    public void setCloseVisibleDelay(int closeVisibleDelay) {
+        adUnitConfig.setCloseVisibleDelay(closeVisibleDelay);
+    }
+
     /**
      * Cleans up resources when destroyed.
      */
