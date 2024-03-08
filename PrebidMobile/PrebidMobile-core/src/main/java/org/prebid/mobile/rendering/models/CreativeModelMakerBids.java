@@ -84,7 +84,10 @@ public class CreativeModelMakerBids {
             return;
         }
 
-        displayNotifier = new DisplayNotifier(winningBid.getBurl());
+        String bUrl = winningBid.getBurl();
+        if (bUrl != null) {
+            displayNotifier = new DisplayNotifier(bUrl);
+        }
 
         if (bidResponse.isVideo()) {
             makeVideoModels(adConfiguration, winningBid.getAdm());
