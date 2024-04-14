@@ -440,7 +440,7 @@ public class VideoCreative extends VideoCreativeProtocol
         }
 
         @Override
-        public void onFileDownloaded(String shortenedPath) {
+        public void onFileDownloaded(String fullPath, String shortenedPath) {
             VideoCreative videoCreative = weakVideoCreative.get();
             if (videoCreative == null) {
                 LogUtil.warning(TAG, "VideoCreative is null");
@@ -448,6 +448,7 @@ public class VideoCreative extends VideoCreativeProtocol
             }
 
             videoCreative.preloadedVideoFilePath = shortenedPath;
+            videoCreative.model.setLocalMediaUrl(fullPath);
             videoCreative.model.setMediaUrl(shortenedPath);
             videoCreative.loadContinued();
         }

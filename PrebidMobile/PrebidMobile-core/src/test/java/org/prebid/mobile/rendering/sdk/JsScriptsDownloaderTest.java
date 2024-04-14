@@ -115,7 +115,7 @@ public class JsScriptsDownloaderTest {
     public void checkScriptsDownloadListener_success() {
         String testPath = "test/path.txt";
         JsScriptsDownloader.ScriptDownloadListener downloadListener = new JsScriptsDownloader.ScriptDownloadListener(testPath, mockStorage);
-        downloadListener.onFileDownloaded(testPath);
+        downloadListener.onFileDownloaded(testPath, testPath);
 
         verify(mockStorage, only()).markFileAsDownloadedCompletely(testPath);
 

@@ -17,6 +17,9 @@
 package org.prebid.mobile.rendering.loading;
 
 import android.content.Context;
+
+import androidx.annotation.Nullable;
+
 import org.prebid.mobile.LogUtil;
 import org.prebid.mobile.api.exceptions.AdException;
 import org.prebid.mobile.configuration.AdUnitConfiguration;
@@ -43,6 +46,9 @@ public class TransactionManager implements AdLoadListener, Transaction.Listener 
     private int currentTransactionCreativeIndex;
     private TransactionManagerListener listener;
 
+    @Nullable
+    private CreativeModelsMaker.Result creativeModel;
+
     public TransactionManager(
             Context context,
             TransactionManagerListener listener,
@@ -53,9 +59,15 @@ public class TransactionManager implements AdLoadListener, Transaction.Listener 
         this.interstitialManager = interstitialManager;
     }
 
+    @Nullable
+    public CreativeModelsMaker.Result getCreativeModel() {
+        return creativeModel;
+    }
+
     //// AdLoadManager.Listener implementation
     @Override
     public void onCreativeModelReady(CreativeModelsMaker.Result result) {
+        creativeModel = result;
         try {
             // Assign transaction to a field to prevent from being destroyed
             latestTransaction = Transaction.createTransaction(weakContextReference.get(),

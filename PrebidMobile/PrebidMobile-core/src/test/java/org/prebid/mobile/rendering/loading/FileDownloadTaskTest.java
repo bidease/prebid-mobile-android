@@ -42,7 +42,7 @@ public class FileDownloadTaskTest {
 
     private FileDownloadListener listener = new FileDownloadListener() {
         @Override
-        public void onFileDownloaded(String path) {
+        public void onFileDownloaded(String fullPath, String path) {
             FileDownloadTaskTest.this.path = path;
         }
 

@@ -32,6 +32,8 @@ public class VideoCreativeModel extends CreativeModel {
 
     private HashMap<VideoAdEvent.Event, ArrayList<String>> videoEventUrls = new HashMap<>();
     private String mediaUrl;
+    private String sourceMediaUrl;
+    private String localMediaUrl;
 
     //interstitial video: media duration
     private long mediaDuration;
@@ -93,6 +95,22 @@ public class VideoCreativeModel extends CreativeModel {
 
     public void setMediaUrl(String mediaUrl) {
         this.mediaUrl = mediaUrl;
+    }
+
+    public void setSourceMediaUrl(String sourceMediaUrl) {
+        this.sourceMediaUrl = sourceMediaUrl;
+    }
+
+    public String getSourceMediaUrl() {
+        return sourceMediaUrl;
+    }
+
+    public void setLocalMediaUrl(String localMediaUrl) {
+        this.localMediaUrl = localMediaUrl;
+    }
+
+    public String getLocalMediaUrl() {
+        return localMediaUrl;
     }
 
     public long getMediaDuration() {

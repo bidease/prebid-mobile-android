@@ -120,7 +120,7 @@ public class JsScriptsDownloader {
         }
 
         @Override
-        public void onFileDownloaded(String string) {
+        public void onFileDownloaded(String fullPath, String string) {
             LogUtil.info(TAG, "JS scripts saved: " + path);
             storage.markFileAsDownloadedCompletely(this.path);
 

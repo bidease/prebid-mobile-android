@@ -42,6 +42,7 @@ import org.prebid.mobile.rendering.bidding.interfaces.InterstitialControllerList
 import org.prebid.mobile.rendering.bidding.listeners.BidRequesterListener;
 import org.prebid.mobile.rendering.bidding.loader.BidLoader;
 import org.prebid.mobile.rendering.models.AdPosition;
+import org.prebid.mobile.rendering.models.CreativeModelsMaker;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -65,6 +66,11 @@ public abstract class BaseInterstitialAdUnit {
 
     protected BaseInterstitialAdUnit(Context context) {
         weakContext = new WeakReference<>(context);
+    }
+
+    @Nullable
+    public CreativeModelsMaker.Result getCreativeModel() {
+        return interstitialController.getCreativeModel();
     }
 
 

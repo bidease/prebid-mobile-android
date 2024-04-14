@@ -20,6 +20,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+
 import org.prebid.mobile.LogUtil;
 import org.prebid.mobile.api.exceptions.AdException;
 import org.prebid.mobile.configuration.AdUnitConfiguration;
@@ -28,6 +31,7 @@ import org.prebid.mobile.rendering.bidding.data.bid.BidResponse;
 import org.prebid.mobile.rendering.bidding.interfaces.InterstitialViewListener;
 import org.prebid.mobile.rendering.interstitial.DialogEventListener;
 import org.prebid.mobile.rendering.models.AdDetails;
+import org.prebid.mobile.rendering.models.CreativeModelsMaker;
 import org.prebid.mobile.rendering.models.internal.InternalFriendlyObstruction;
 import org.prebid.mobile.rendering.utils.constants.IntentActions;
 import org.prebid.mobile.rendering.utils.helpers.InsetsUtils;
@@ -112,6 +116,11 @@ public class InterstitialView extends BaseAdView {
     public InterstitialView(Context context) throws AdException {
         super(context);
         init();
+    }
+
+    @Nullable
+    public CreativeModelsMaker.Result getCreativeModel() {
+        return adViewManager.getCreativeModel();
     }
 
     public void setPubBackGroundOpacity(float opacity) {

@@ -145,7 +145,7 @@ public class FileDownloadTask extends BaseNetworkTask {
         if (listener != null) {
             String path = file.getPath();
             int beginIndex = path.lastIndexOf("/");
-            listener.onFileDownloaded(beginIndex != -1 ? path.substring(beginIndex) : path);
+            listener.onFileDownloaded(path, beginIndex != -1 ? path.substring(beginIndex) : path);
         }
     }
 

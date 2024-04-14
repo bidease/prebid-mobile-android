@@ -49,7 +49,7 @@ public class VideoDownloadTaskTest {
 
     private FileDownloadListener listener = new FileDownloadListener() {
         @Override
-        public void onFileDownloaded(String path) {
+        public void onFileDownloaded(String fullPath, String path) {
             VideoDownloadTaskTest.this.path = path;
         }
 

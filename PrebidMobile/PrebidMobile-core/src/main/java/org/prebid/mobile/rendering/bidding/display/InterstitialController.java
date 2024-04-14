@@ -18,6 +18,8 @@ package org.prebid.mobile.rendering.bidding.display;
 
 import android.content.Context;
 
+import androidx.annotation.Nullable;
+
 import org.prebid.mobile.LogUtil;
 import org.prebid.mobile.api.data.AdFormat;
 import org.prebid.mobile.api.exceptions.AdException;
@@ -28,6 +30,7 @@ import org.prebid.mobile.rendering.bidding.data.bid.BidResponse;
 import org.prebid.mobile.rendering.bidding.interfaces.InterstitialControllerListener;
 import org.prebid.mobile.rendering.bidding.interfaces.InterstitialViewListener;
 import org.prebid.mobile.rendering.models.AdDetails;
+import org.prebid.mobile.rendering.models.CreativeModelsMaker;
 import org.prebid.mobile.rendering.models.openrtb.bidRequests.MobileSdkPassThrough;
 import org.prebid.mobile.rendering.networking.WinNotifier;
 
@@ -106,6 +109,13 @@ public class InterstitialController implements PrebidMobileInterstitialControlle
             bidInterstitialView.setInterstitialViewListener(interstitialViewListener);
         }
         bidInterstitialView.setPubBackGroundOpacity(1.0f);
+    }
+
+
+    @Nullable
+    @Override
+    public CreativeModelsMaker.Result getCreativeModel() {
+        return bidInterstitialView.getCreativeModel();
     }
 
     public void loadAd(AdUnitConfiguration adUnitConfiguration, BidResponse bidResponse) {

@@ -122,7 +122,9 @@ public class CreativeModelsMakerVast extends CreativeModelsMaker {
 
             videoModel.setName(VIDEO_CREATIVE_TAG);
 
-            videoModel.setMediaUrl(latestVastWrapperParser.getMediaFileUrl(latestVastWrapperParser, 0));
+            String mediaUrl = latestVastWrapperParser.getMediaFileUrl(latestVastWrapperParser, 0);
+            videoModel.setMediaUrl(mediaUrl);
+            videoModel.setSourceMediaUrl(mediaUrl);
             videoModel.setMediaDuration(Utils.getMsFrom(videoDuration));
             videoModel.setSkipOffset(Utils.getMsFrom(skipOffset));
             videoModel.setAdVerifications(adVerifications);

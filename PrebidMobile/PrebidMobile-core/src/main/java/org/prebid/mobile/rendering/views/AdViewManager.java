@@ -24,6 +24,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
+
 import org.prebid.mobile.LogUtil;
 import org.prebid.mobile.api.data.AdFormat;
 import org.prebid.mobile.api.exceptions.AdException;
@@ -38,6 +40,7 @@ import org.prebid.mobile.rendering.loading.TransactionManager;
 import org.prebid.mobile.rendering.loading.TransactionManagerListener;
 import org.prebid.mobile.rendering.models.AbstractCreative;
 import org.prebid.mobile.rendering.models.AdDetails;
+import org.prebid.mobile.rendering.models.CreativeModelsMaker;
 import org.prebid.mobile.rendering.models.HTMLCreative;
 import org.prebid.mobile.rendering.models.internal.InternalFriendlyObstruction;
 import org.prebid.mobile.rendering.models.internal.InternalPlayerState;
@@ -89,6 +92,11 @@ public class AdViewManager implements CreativeViewListener, TransactionManagerLi
         transactionManager = new TransactionManager(context, this, interstitialManager);
         this.interstitialManager = interstitialManager;
         this.interstitialManager.setAdViewManagerInterstitialDelegate(delegate);
+    }
+
+    @Nullable
+    public CreativeModelsMaker.Result getCreativeModel() {
+        return transactionManager.getCreativeModel();
     }
 
     @Override
