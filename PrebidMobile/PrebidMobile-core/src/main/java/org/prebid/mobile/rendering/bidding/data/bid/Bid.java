@@ -171,10 +171,7 @@ public class Bid {
     }
 
     public String getBurl() {
-        if (burl == null) {
-            return null;
-        }
-        return burl.replace("${AUCTION_PRICE}", Double.toString(price));
+        return burl;
     }
 
     public String getLurl() {
@@ -343,5 +340,7 @@ public class Bid {
 
         bid.adm = MacrosResolutionHelper.resolveAuctionMacros(bid.adm, macrosModelMap);
         bid.nurl = MacrosResolutionHelper.resolveAuctionMacros(bid.nurl, macrosModelMap);
+        bid.burl = MacrosResolutionHelper.resolveAuctionMacros(bid.burl, macrosModelMap);
+        bid.lurl = MacrosResolutionHelper.resolveAuctionMacros(bid.lurl, macrosModelMap);
     }
 }
