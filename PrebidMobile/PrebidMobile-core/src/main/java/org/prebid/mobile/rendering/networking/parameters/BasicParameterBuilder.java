@@ -113,9 +113,14 @@ public class BasicParameterBuilder extends ParameterBuilder {
 
         ArrayList<Imp> impsArrayList = adRequestInput.getBidRequest().getImp();
         if (impsArrayList != null) {
-            Imp newImp = new Imp();
-            configureImpObject(newImp, uuid);
-            impsArrayList.add(newImp);
+            if (impsArrayList.size() > 0) {
+                Imp imp = impsArrayList.get(0);
+                configureImpObject(imp, uuid);
+            } else {
+                Imp newImp = new Imp();
+                configureImpObject(newImp, uuid);
+                impsArrayList.add(newImp);
+            }
         }
     }
 
@@ -363,14 +368,20 @@ public class BasicParameterBuilder extends ParameterBuilder {
     }
 
     private void setCommonImpValues(Imp imp, String uuid) {
-        imp.id = uuid;
+        if (imp.id == null) {
+            imp.id = uuid;
+        }
         boolean isInterstitial = adConfiguration.isAdType(AdFormat.VAST) || adConfiguration.isAdType(AdFormat.INTERSTITIAL);
         //Send 1 for interstitial/interstitial video and 0 for banners
-        imp.instl = isInterstitial ? 1 : 0;
+        if (imp.instl == null) {
+            imp.instl = isInterstitial ? 1 : 0;
+        }
         // 0 == embedded, 1 == native
-        imp.clickBrowser = !PrebidMobile.useExternalBrowser && browserActivityAvailable ? 0 : 1;
+        if (imp.clickBrowser == null) {
+            imp.clickBrowser = !PrebidMobile.useExternalBrowser && browserActivityAvailable ? 0 : 1;
+        }
         //set secure=1 for https or secure=0 for http
-        if (!adConfiguration.isAdType(AdFormat.VAST)) {
+        if (!adConfiguration.isAdType(AdFormat.VAST) && imp.secure == null) {
             imp.secure = 1;
         }
         imp.getExt().put("prebid", Prebid.getJsonObjectForImp(adConfiguration));
@@ -391,12 +402,18 @@ public class BasicParameterBuilder extends ParameterBuilder {
         // TODO: 15.12.2020 uncomment when Prebid server will be able to process Ext content not related to bidders
         //imp.getExt().put(KEY_DEEPLINK_PLUS, 1);
 
-        imp.bidFloor = adConfiguration.getBidFloor();
+        if (imp.bidFloor == null) {
+            imp.bidFloor = adConfiguration.getBidFloor();
+        }
     }
 
     private void setDisplayManager(Imp imp) {
-        imp.displaymanager = adConfiguration.isOriginalAdUnit() ? null : DISPLAY_MANAGER_VALUE;
-        imp.displaymanagerver = adConfiguration.isOriginalAdUnit() ? null : SDK_VERSION;
+        if (imp.displaymanager == null) {
+            imp.displaymanager = adConfiguration.isOriginalAdUnit() ? null : DISPLAY_MANAGER_VALUE;
+        }
+        if (imp.displaymanagerver == null) {
+            imp.displaymanagerver = adConfiguration.isOriginalAdUnit() ? null : SDK_VERSION;
+        }
     }
 
     private int[] getApiFrameworks() {
