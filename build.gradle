@@ -5,7 +5,7 @@ ext {
     prebidSdkCompileVersion = 33
     prebidSdkBuildToolsVersion = "30.0.3"
 
-    artifactGroupId = "org.prebid"
+    artifactGroupId = "com.bidease.org.prebid"
     artifactFolder = "${buildDir}/generated-artifacts"
     omSdkVersion = "1.4.1"
     omSdkModuleName = "omsdk-android"

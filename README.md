@@ -1,16 +1,16 @@
-[![Build Status](https://api.travis-ci.org/prebid/prebid-mobile-android.svg?branch=master)](https://travis-ci.org/prebid/prebid-mobile-android)
+[![Build Status](https://api.travis-ci.com.bidease.org.prebid/prebid-mobile-android.svg?branch=master)](https://travis-ci.com.bidease.org.prebid/prebid-mobile-android)
 
 # Prebid Mobile Android SDK
 
 To work with Prebid Mobile, you will need access to a Prebid Server.
-See [this page](https://docs.prebid.org/prebid-server/overview/prebid-server-overview.html) for options.
+See [this page](https://docs.prebid.com.bidease.org.prebid-server/overview/prebid-server-overview.html) for options.
 
 ## Use Maven?
 
 Easily include the Prebid Mobile SDK using Maven. Simply add this line to your gradle dependencies:
 
 ```
-implementation 'org.prebid:prebid-mobile-sdk:2.1.4'
+implementation 'com.bidease.org.prebid:prebid-mobile-sdk:2.1.4'
 ```
 
 ## Build from source

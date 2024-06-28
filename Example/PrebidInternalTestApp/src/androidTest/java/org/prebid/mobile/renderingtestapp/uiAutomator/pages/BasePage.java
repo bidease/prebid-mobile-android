@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages;
 
 import android.os.Build;
 import android.os.RemoteException;
@@ -29,7 +29,7 @@ import androidx.test.uiautomator.UiObjectNotFoundException;
 import androidx.test.uiautomator.UiSelector;
 import androidx.test.uiautomator.Until;
 
-import org.prebid.mobile.renderingtestapp.uiAutomator.utils.WebViewLocator;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.utils.WebViewLocator;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,7 +43,7 @@ import static org.junit.Assert.assertTrue;
 
 public class BasePage<T> {
 
-    protected static final String TAG = "org.prebid.mobile.renderingtestapp";
+    protected static final String TAG = "com.bidease.org.prebid.mobile.renderingtestapp";
     protected UiDevice device;
     private int ACTIVITY_TIMEOUT = 10000;
 

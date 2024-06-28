@@ -14,9 +14,9 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm;
 
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
 
 import androidx.test.uiautomator.By;
 import androidx.test.uiautomator.BySelector;

@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.eventhandlers;
+package com.bidease.org.prebid.mobile.eventhandlers;
 
 import android.app.Activity;
 import com.google.android.gms.ads.AdError;
@@ -25,8 +25,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.prebid.mobile.eventhandlers.global.Constants;
-import org.prebid.mobile.test.utils.WhiteBox;
+import com.bidease.org.prebid.mobile.eventhandlers.global.Constants;
+import com.bidease.org.prebid.mobile.test.utils.WhiteBox;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;

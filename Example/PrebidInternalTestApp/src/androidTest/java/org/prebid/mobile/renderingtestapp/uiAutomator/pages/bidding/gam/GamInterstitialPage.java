@@ -14,10 +14,10 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam;
 
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.utils.WebViewLocator;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.utils.WebViewLocator;
 
 import java.util.concurrent.TimeUnit;
 

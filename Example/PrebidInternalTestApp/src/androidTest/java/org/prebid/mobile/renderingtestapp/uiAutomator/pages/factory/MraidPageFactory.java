@@ -14,20 +14,20 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory;
 
 import androidx.test.uiautomator.UiDevice;
 
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.PageFactory;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3LoadAndEventsPage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3ResizeNegativePage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3TestMethods;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3TestProperties;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3ViewabilityCompliancePage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.MraidExpand1Page;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.MraidExpand2Page;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.MraidResizePage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.MraidResizeWithErrorsPage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.PageFactory;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3LoadAndEventsPage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3ResizeNegativePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3TestMethods;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3TestProperties;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.Mraid3ViewabilityCompliancePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.MraidExpand1Page;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.MraidExpand2Page;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.MraidResizePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds.MraidResizeWithErrorsPage;
 
 public class MraidPageFactory extends PageFactory {
 

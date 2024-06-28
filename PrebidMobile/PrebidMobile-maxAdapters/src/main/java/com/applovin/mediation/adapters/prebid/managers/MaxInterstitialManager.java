@@ -12,9 +12,9 @@ import com.applovin.mediation.adapter.parameters.MaxAdapterResponseParameters;
 import com.applovin.mediation.adapters.prebid.ListenersCreator;
 import com.applovin.mediation.adapters.prebid.ParametersChecker;
 
-import org.prebid.mobile.api.exceptions.AdException;
-import org.prebid.mobile.rendering.bidding.display.InterstitialController;
-import org.prebid.mobile.rendering.bidding.interfaces.InterstitialControllerListener;
+import com.bidease.org.prebid.mobile.api.exceptions.AdException;
+import com.bidease.org.prebid.mobile.rendering.bidding.display.InterstitialController;
+import com.bidease.org.prebid.mobile.rendering.bidding.interfaces.InterstitialControllerListener;
 
 public class MaxInterstitialManager {
 

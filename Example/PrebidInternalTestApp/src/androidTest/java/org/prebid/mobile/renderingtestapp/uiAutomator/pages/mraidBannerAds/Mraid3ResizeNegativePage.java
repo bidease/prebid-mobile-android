@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds;
 
 import androidx.test.uiautomator.By;
 import androidx.test.uiautomator.BySelector;

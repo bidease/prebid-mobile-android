@@ -14,14 +14,14 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory;
 
 import androidx.test.uiautomator.UiDevice;
 
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.PageFactory;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam.GamBannerPage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmBannerPage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmBannerVideoPage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.PageFactory;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam.GamBannerPage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmBannerPage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmBannerVideoPage;
 
 public class BannerPageFactory extends PageFactory {
 

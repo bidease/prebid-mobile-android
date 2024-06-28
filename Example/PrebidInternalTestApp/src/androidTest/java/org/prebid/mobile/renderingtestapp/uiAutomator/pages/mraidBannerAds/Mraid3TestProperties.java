@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds;
 
 import android.view.KeyEvent;
 import androidx.test.uiautomator.By;
@@ -23,9 +23,9 @@ import androidx.test.uiautomator.UiDevice;
 import androidx.test.uiautomator.Until;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.prebid.mobile.PrebidMobile;
-import org.prebid.mobile.rendering.utils.helpers.AdIdManager;
-import org.prebid.mobile.rendering.utils.helpers.AppInfoManager;
+import com.bidease.org.prebid.mobile.PrebidMobile;
+import com.bidease.org.prebid.mobile.rendering.utils.helpers.AdIdManager;
+import com.bidease.org.prebid.mobile.rendering.utils.helpers.AppInfoManager;
 
 import static org.junit.Assert.*;
 
@@ -141,7 +141,7 @@ public class Mraid3TestProperties extends MraidBasicPage {
         static BySelector locationContainer = By.res("locationNode");
         static BySelector orientationContainer = By.res("currentAppOrientationNode");
         static BySelector expandedAdName = By.res("posdiv");
-        static BySelector closeButton = By.res("org.prebid.mobile.renderingtestapp:id/iv_close_interstitial");
+        static BySelector closeButton = By.res("com.bidease.org.prebid.mobile.renderingtestapp:id/iv_close_interstitial");
         static BySelector volumeIndicator = By.res("indicator");
         static BySelector playButton = getWebViewSelectorVersionDepends("play");
     }

@@ -27,7 +27,7 @@
             android:layout_gravity="center"
             android:gravity="center">
 
-            <org.prebid.mobile.rendering.views.imageview.RoundedImageView
+            <com.bidease.org.prebid.mobile.rendering.views.imageview.RoundedImageView
                 android:id="@+id/app_icon"
                 android:layout_width="80dp"
                 android:layout_height="80dp"

@@ -14,14 +14,14 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory;
 
 import androidx.test.uiautomator.UiDevice;
 
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.PageFactory;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam.GamNativeStylesPage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmNativePage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmNativeStylesPage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.PageFactory;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam.GamNativeStylesPage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmNativePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmNativeStylesPage;
 
 public class NativePageFactory extends PageFactory{
     public NativePageFactory(UiDevice device) {

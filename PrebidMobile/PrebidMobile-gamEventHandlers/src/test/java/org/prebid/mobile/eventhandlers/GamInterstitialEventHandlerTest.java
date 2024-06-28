@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.eventhandlers;
+package com.bidease.org.prebid.mobile.eventhandlers;
 
 import android.app.Activity;
 import android.os.Handler;
@@ -23,11 +23,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.prebid.mobile.api.exceptions.AdException;
-import org.prebid.mobile.rendering.bidding.data.bid.Bid;
-import org.prebid.mobile.rendering.bidding.data.bid.Prebid;
-import org.prebid.mobile.rendering.bidding.listeners.InterstitialEventListener;
-import org.prebid.mobile.test.utils.WhiteBox;
+import com.bidease.org.prebid.mobile.api.exceptions.AdException;
+import com.bidease.org.prebid.mobile.rendering.bidding.data.bid.Bid;
+import com.bidease.org.prebid.mobile.rendering.bidding.data.bid.Prebid;
+import com.bidease.org.prebid.mobile.rendering.bidding.listeners.InterstitialEventListener;
+import com.bidease.org.prebid.mobile.test.utils.WhiteBox;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;

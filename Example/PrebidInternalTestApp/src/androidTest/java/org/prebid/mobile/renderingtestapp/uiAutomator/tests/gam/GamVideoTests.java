@@ -14,14 +14,14 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.tests.gam;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.tests.gam;
 
 import org.junit.Test;
-import org.prebid.mobile.renderingtestapp.R;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.utils.BaseUiAutomatorTest;
+import com.bidease.org.prebid.mobile.renderingtestapp.R;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.utils.BaseUiAutomatorTest;
 
-import static org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam.GamInterstitialPage.VIDEO_DURATION_TIMEOUT;
+import static com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam.GamInterstitialPage.VIDEO_DURATION_TIMEOUT;
 
 public class GamVideoTests extends BaseUiAutomatorTest {
     @Test

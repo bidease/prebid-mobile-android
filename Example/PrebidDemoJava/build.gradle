@@ -8,7 +8,7 @@ android {
         targetSdkVersion 33
         versionCode 1
         versionName "1.0.0"
-        applicationId "org.prebid.mobile.javademo"
+        applicationId "com.bidease.org.prebid.mobile.javademo"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -31,7 +31,7 @@ dependencies {
     implementation project(':PrebidMobile')
 
     // For testing staging releases
-//    implementation "org.prebid:prebid-mobile-sdk:$prebidSdkVersionName"
+//    implementation "com.bidease.org.prebid:prebid-mobile-sdk:$prebidSdkVersionName"
 
     // Base
     implementation 'androidx.appcompat:appcompat:1.2.0'

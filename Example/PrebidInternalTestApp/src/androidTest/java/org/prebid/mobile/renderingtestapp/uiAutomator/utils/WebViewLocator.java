@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.utils;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.utils;
 
 import androidx.test.espresso.web.webdriver.Locator;
 

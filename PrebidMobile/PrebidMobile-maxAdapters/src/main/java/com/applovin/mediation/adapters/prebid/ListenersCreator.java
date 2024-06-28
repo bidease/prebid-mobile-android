@@ -5,9 +5,9 @@ import com.applovin.mediation.adapter.MaxAdapterError;
 import com.applovin.mediation.adapter.listeners.MaxAdViewAdapterListener;
 import com.applovin.mediation.adapter.listeners.MaxInterstitialAdapterListener;
 import com.applovin.mediation.adapter.listeners.MaxRewardedAdapterListener;
-import org.prebid.mobile.api.exceptions.AdException;
-import org.prebid.mobile.rendering.bidding.interfaces.InterstitialControllerListener;
-import org.prebid.mobile.rendering.bidding.listeners.DisplayViewListener;
+import com.bidease.org.prebid.mobile.api.exceptions.AdException;
+import com.bidease.org.prebid.mobile.rendering.bidding.interfaces.InterstitialControllerListener;
+import com.bidease.org.prebid.mobile.rendering.bidding.listeners.DisplayViewListener;
 
 public class ListenersCreator {
 

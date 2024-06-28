@@ -14,12 +14,12 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.tests.ppm;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.tests.ppm;
 
 import org.junit.Test;
-import org.prebid.mobile.renderingtestapp.R;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.utils.BaseUiAutomatorTest;
+import com.bidease.org.prebid.mobile.renderingtestapp.R;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.utils.BaseUiAutomatorTest;
 
 import androidx.test.uiautomator.By;
 

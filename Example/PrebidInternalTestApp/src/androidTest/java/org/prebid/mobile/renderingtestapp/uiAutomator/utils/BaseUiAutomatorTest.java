@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.utils;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.utils;
 
 import android.app.Instrumentation;
 import android.content.Context;
@@ -31,7 +31,7 @@ import androidx.test.uiautomator.Until;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.HomePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.HomePage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -39,7 +39,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
 @RunWith(AndroidJUnit4ClassRunner.class)
 public class BaseUiAutomatorTest {
 
-    public static final String INTERNAL_APP_PACKAGE = "org.prebid.mobile.renderingtestapp";
+    public static final String INTERNAL_APP_PACKAGE = "com.bidease.org.prebid.mobile.renderingtestapp";
     public static final int TIMEOUT = 5000;
     protected UiDevice device;
     protected HomePage homePage;

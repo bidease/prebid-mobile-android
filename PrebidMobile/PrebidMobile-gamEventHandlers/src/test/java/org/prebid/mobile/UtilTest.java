@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile;
+package com.bidease.org.prebid.mobile;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -30,7 +30,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.prebid.mobile.addendum.AdViewUtils;
+import com.bidease.org.prebid.mobile.addendum.AdViewUtils;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;

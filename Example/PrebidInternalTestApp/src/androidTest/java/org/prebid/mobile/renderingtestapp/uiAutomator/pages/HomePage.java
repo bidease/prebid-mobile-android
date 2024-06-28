@@ -14,15 +14,15 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages;
 
 import android.util.Log;
 
-import org.prebid.mobile.renderingtestapp.BuildConfig;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory.BannerPageFactory;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory.InterstitialPageFactory;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory.MraidPageFactory;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory.NativePageFactory;
+import com.bidease.org.prebid.mobile.renderingtestapp.BuildConfig;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory.BannerPageFactory;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory.InterstitialPageFactory;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory.MraidPageFactory;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory.NativePageFactory;
 
 import androidx.test.uiautomator.By;
 import androidx.test.uiautomator.BySelector;

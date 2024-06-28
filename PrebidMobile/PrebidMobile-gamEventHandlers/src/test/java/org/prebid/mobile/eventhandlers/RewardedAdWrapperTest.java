@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.eventhandlers;
+package com.bidease.org.prebid.mobile.eventhandlers;
 
 import android.app.Activity;
 import android.content.Context;
@@ -30,14 +30,14 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
-import org.prebid.mobile.test.utils.WhiteBox;
+import com.bidease.org.prebid.mobile.test.utils.WhiteBox;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import static org.prebid.mobile.eventhandlers.global.Constants.APP_EVENT;
+import static com.bidease.org.prebid.mobile.eventhandlers.global.Constants.APP_EVENT;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 19)

@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages;
 
 import androidx.test.uiautomator.*;
 

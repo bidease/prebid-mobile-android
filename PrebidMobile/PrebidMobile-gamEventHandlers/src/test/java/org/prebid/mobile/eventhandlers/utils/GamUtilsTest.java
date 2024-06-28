@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.eventhandlers.utils;
+package com.bidease.org.prebid.mobile.eventhandlers.utils;
 
 import android.os.Bundle;
 import com.google.android.gms.ads.admanager.AdManagerAdRequest;
@@ -23,10 +23,10 @@ import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.prebid.mobile.CacheManager;
-import org.prebid.mobile.NativeAdUnit;
-import org.prebid.mobile.PrebidNativeAd;
-import org.prebid.mobile.rendering.utils.ntv.NativeAdProvider;
+import com.bidease.org.prebid.mobile.CacheManager;
+import com.bidease.org.prebid.mobile.NativeAdUnit;
+import com.bidease.org.prebid.mobile.PrebidNativeAd;
+import com.bidease.org.prebid.mobile.rendering.utils.ntv.NativeAdProvider;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 

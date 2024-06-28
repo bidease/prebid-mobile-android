@@ -1,4 +1,4 @@
-package org.prebid.mobile.eventhandlers.global;
+package com.bidease.org.prebid.mobile.eventhandlers.global;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,7 +6,7 @@ import com.google.android.gms.ads.MobileAds;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.prebid.mobile.PrebidMobile;
+import com.bidease.org.prebid.mobile.PrebidMobile;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 

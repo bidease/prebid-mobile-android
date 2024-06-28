@@ -14,14 +14,14 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.mraidBannerAds;
 
 import androidx.test.uiautomator.BySelector;
 import androidx.test.uiautomator.UiDevice;
 import androidx.test.uiautomator.UiObject2;
 import androidx.test.uiautomator.Until;
 
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.AdBasePage;
 
 import static androidx.test.uiautomator.By.copy;
 import static org.junit.Assert.assertFalse;

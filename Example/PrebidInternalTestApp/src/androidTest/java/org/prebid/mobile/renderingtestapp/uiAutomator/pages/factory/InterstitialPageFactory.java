@@ -14,13 +14,13 @@
  *    limitations under the License.
  */
 
-package org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory;
+package com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.factory;
 
 import androidx.test.uiautomator.UiDevice;
 
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.PageFactory;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam.GamInterstitialPage;
-import org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmInterstitialPage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.PageFactory;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.gam.GamInterstitialPage;
+import com.bidease.org.prebid.mobile.renderingtestapp.uiAutomator.pages.bidding.ppm.PpmInterstitialPage;
 
 public class InterstitialPageFactory extends PageFactory {
 
