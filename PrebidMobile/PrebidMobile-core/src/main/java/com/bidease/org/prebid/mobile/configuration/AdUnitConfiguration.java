@@ -79,6 +79,8 @@ public class AdUnitConfiguration {
     private String ip = null;
     @Nullable
     private String countryAlpha3 = null;
+    @Nullable
+    private String impTagId = null;
 
 
     public void modifyUsingBidResponse(@Nullable BidResponse bidResponse) {
@@ -526,6 +528,15 @@ public class AdUnitConfiguration {
     @Nullable
     public String getCountryAlpha3() {
         return countryAlpha3;
+    }
+
+    public void setImpTagId(@Nullable String impTagId) {
+        this.impTagId = impTagId;
+    }
+
+    @Nullable
+    public String getImpTagId() {
+        return impTagId;
     }
 
     @Override

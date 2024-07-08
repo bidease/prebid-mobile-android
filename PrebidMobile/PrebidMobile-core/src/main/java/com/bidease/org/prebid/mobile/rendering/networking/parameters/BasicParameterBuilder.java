@@ -405,6 +405,9 @@ public class BasicParameterBuilder extends ParameterBuilder {
         if (imp.bidFloor == null) {
             imp.bidFloor = adConfiguration.getBidFloor();
         }
+        if (imp.tagid == null) {
+            imp.tagid = adConfiguration.getImpTagId();
+        }
     }
 
     private void setDisplayManager(Imp imp) {

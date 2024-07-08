@@ -94,6 +94,10 @@ public abstract class BaseInterstitialAdUnit {
         adUnitConfig.setIp(ip);
     }
 
+    public void setImpTagId(@Nullable String impTagId) {
+        adUnitConfig.setImpTagId(impTagId);
+    }
+
     /**
      * Executes ad loading if no request is running.
      */
