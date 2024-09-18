@@ -51,6 +51,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Requester {
+    public static boolean debugPlainGetRequest = false;
 
     private static final String TAG = Requester.class.getSimpleName();
 
@@ -185,8 +186,12 @@ public abstract class Requester {
     protected void sendAdRequest(URLComponents jsonUrlComponents) {
         BaseNetworkTask.GetUrlParams params = new BaseNetworkTask.GetUrlParams();
         params.url = jsonUrlComponents.getBaseUrl();
-        params.queryParams = jsonUrlComponents.getQueryArgString();
-        params.requestType = "POST";
+        if (debugPlainGetRequest) {
+            params.requestType = "GET";
+        } else {
+            params.queryParams = jsonUrlComponents.getQueryArgString();
+            params.requestType = "POST";
+        }
         params.userAgent = AppInfoManager.getUserAgent();
         params.name = requestName;
 
