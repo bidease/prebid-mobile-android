@@ -73,6 +73,11 @@ public class AdInterstitialDialog extends AdBaseDialog {
     }
 
     @Override
+    protected void openStore() {
+        interstitialManager.interstitialAdShouldOpenStore();
+    }
+
+    @Override
     protected void handleDialogShow() {
         Views.removeFromParent(adViewContainer);
         addContentView(adViewContainer,

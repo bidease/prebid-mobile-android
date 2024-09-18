@@ -25,4 +25,6 @@ public interface InterstitialManagerInterface {
     void interstitialClosed(View view);
 
     void interstitialDialogShown(ViewGroup rootViewGroup);
+
+    void interstitialAdShouldOpenStore();
 }

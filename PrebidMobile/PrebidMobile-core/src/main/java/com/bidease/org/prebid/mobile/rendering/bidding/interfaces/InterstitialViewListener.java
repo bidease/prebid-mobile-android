@@ -54,4 +54,6 @@ public interface InterstitialViewListener {
     void onAdClickThroughClosed(InterstitialView interstitialView);
 
     void onAdClosed(InterstitialView interstitialView);
+
+    void onAdShouldOpenStore(InterstitialView interstitialView);
 }

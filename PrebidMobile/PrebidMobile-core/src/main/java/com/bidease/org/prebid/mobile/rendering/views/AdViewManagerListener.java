@@ -70,4 +70,6 @@ public abstract class AdViewManagerListener {
     public void creativeResumed() { }
 
     public void videoCreativePlaybackFinished() {}
+
+    public void adShouldOpenStore() {}
 }

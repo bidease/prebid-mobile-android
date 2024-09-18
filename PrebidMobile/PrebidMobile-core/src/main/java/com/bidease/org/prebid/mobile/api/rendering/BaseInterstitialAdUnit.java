@@ -22,6 +22,8 @@ import static com.bidease.org.prebid.mobile.api.rendering.BaseInterstitialAdUnit
 import static com.bidease.org.prebid.mobile.api.rendering.BaseInterstitialAdUnit.InterstitialAdUnitState.READY_TO_DISPLAY_PREBID;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
@@ -492,6 +494,21 @@ public abstract class BaseInterstitialAdUnit {
             public void onInterstitialClosed() {
                 notifyAdEventListener(AdListenerEvent.AD_CLOSE);
                 notifyAdEventListener(AdListenerEvent.USER_RECEIVED_PREBID_REWARD);
+            }
+
+            @Override
+            public void onInterstitialShouldOpenStore() {
+                if (getWinnerBid() == null || getWinnerBid().getClickTarget() == null) {
+                    onInterstitialClosed();
+                    return;
+                }
+                String clickTarget = getWinnerBid().getClickTarget();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(clickTarget));
+                Context context = weakContext.get();
+                if (context != null) {
+                    context.startActivity(i);
+                }
             }
         };
     }

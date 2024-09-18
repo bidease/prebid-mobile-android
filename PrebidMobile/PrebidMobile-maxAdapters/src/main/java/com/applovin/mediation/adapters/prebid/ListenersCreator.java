@@ -84,6 +84,11 @@ public class ListenersCreator {
             public void onInterstitialClosed() {
                 maxListener.onInterstitialAdHidden();
             }
+
+            @Override
+            public void onInterstitialShouldOpenStore() {
+
+            }
         };
     }
 
@@ -113,6 +118,11 @@ public class ListenersCreator {
             public void onInterstitialClosed() {
                 maxListener.onRewardedAdVideoCompleted(); maxListener.onRewardedAdHidden();
                 maxListener.onUserRewarded(MaxRewardImpl.createDefault());
+            }
+
+            @Override
+            public void onInterstitialShouldOpenStore() {
+
             }
         };
     }

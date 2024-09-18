@@ -219,8 +219,14 @@ public class InterstitialVideo extends AdBaseDialog {
         LogUtil.debug(TAG, "closeableAdContainer -  onClose()");
         cancel();
 
+
         //IMPORTANT: call interstitialClosed() so it sends back to the adViewContainer to reimplant after closing an ad.
         interstitialManager.interstitialAdClosed();
+    }
+
+    @Override
+    protected void openStore() {
+        interstitialManager.interstitialAdShouldOpenStore();
     }
 
     protected void init() {

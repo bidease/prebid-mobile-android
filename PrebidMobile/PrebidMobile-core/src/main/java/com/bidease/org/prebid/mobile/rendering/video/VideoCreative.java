@@ -299,6 +299,13 @@ public class VideoCreative extends VideoCreativeProtocol
         }
     }
 
+    @Override
+    public void onVideoInterstitialShouldOpenStore() {
+        if (getCreativeViewListener() != null) {
+            getCreativeViewListener().creativeInterstitialShouldOpenStore(this);
+        }
+    }
+
     public long getVideoSkipOffset() {
         return model.getSkipOffset();
     }

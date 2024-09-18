@@ -99,6 +99,14 @@ public class InterstitialController implements PrebidMobileInterstitialControlle
                 listener.onInterstitialClosed();
             }
         }
+
+        @Override
+        public void onAdShouldOpenStore(InterstitialView interstitialView) {
+            LogUtil.debug(TAG, "onAdShouldOpenStore");
+            if (listener != null) {
+                listener.onInterstitialShouldOpenStore();
+            }
+        }
     };
 
     public InterstitialController(Context context, InterstitialControllerListener listener)

@@ -247,6 +247,13 @@ public class HTMLCreative extends AbstractCreative implements WebViewDelegate, I
     }
 
     @Override
+    public void interstitialShouldOpenStore() {
+        if (getCreativeViewListener() != null) {
+            getCreativeViewListener().creativeInterstitialShouldOpenStore(this);
+        }
+    }
+
+    @Override
     public void interstitialDialogShown(ViewGroup rootViewGroup) {
         CreativeViewListener creativeViewListener = getCreativeViewListener();
         if (creativeViewListener == null) {

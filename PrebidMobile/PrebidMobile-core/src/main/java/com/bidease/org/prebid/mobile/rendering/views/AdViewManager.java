@@ -140,6 +140,12 @@ public class AdViewManager implements CreativeViewListener, TransactionManagerLi
     }
 
     @Override
+    public void creativeInterstitialShouldOpenStore(AbstractCreative creative) {
+        LogUtil.debug(TAG, "creativeInterstitialShouldOpenStore");
+        adViewListener.adShouldOpenStore();
+    }
+
+    @Override
     public void creativeDidExpand(AbstractCreative creative) {
         adViewListener.creativeExpanded();
     }

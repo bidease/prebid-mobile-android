@@ -84,6 +84,11 @@ public class PrebidInterstitialAdapter extends PrebidBaseAdapter {
             public void onInterstitialFailedToLoad(AdException exception) {
                 loadListener.onFailure(AdErrors.failedToLoadAd(exception.getMessage()));
             }
+
+            @Override
+            public void onInterstitialShouldOpenStore() {
+
+            }
         };
     }
 

@@ -110,6 +110,11 @@ public class InterstitialView extends BaseAdView {
             LogUtil.debug(TAG, "interstitialAdClosed");
             handleActionClose();
         }
+
+        @Override
+        public void adShouldOpenStore() {
+            listener.onAdShouldOpenStore(InterstitialView.this);
+        }
     };
     //endregion ========== Listener Area
 

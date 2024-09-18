@@ -53,4 +53,6 @@ public interface CreativeViewListener {
     void creativePaused(AbstractCreative creative);
 
     void creativeResumed(AbstractCreative creative);
+
+    void creativeInterstitialShouldOpenStore(AbstractCreative creative);
 }

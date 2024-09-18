@@ -28,4 +28,6 @@ public interface InterstitialControllerListener {
     void onInterstitialDisplayed();
 
     void onInterstitialClosed();
+
+    void onInterstitialShouldOpenStore();
 }

@@ -18,6 +18,9 @@ package com.bidease.org.prebid.mobile.rendering.bidding.data.bid;
 
 
 import android.util.Base64;
+
+import androidx.annotation.Nullable;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import com.bidease.org.prebid.mobile.rendering.models.internal.MacrosModel;
@@ -55,6 +58,8 @@ public class Bid {
 
     // "prebid" object from "ext"
     private Prebid prebid;
+    // "bidease" object from "ext"
+    private Bidease bidease;
 
     // Win notice URL called by the exchange if the bid wins (not  necessarily indicative of a delivered, viewed, or billable ad);
     // optional means of serving ad markup
@@ -250,6 +255,15 @@ public class Bid {
         return mobileSdkPassThrough;
     }
 
+    @Nullable
+    public String getClickTarget() {
+        String clickTarget = bidease.getClickTarget();
+        if (clickTarget == null) {
+            return null;
+        }
+        return clickTarget.replace("${AUCTION_BID_ID}", id);
+    }
+
     public static Bid fromJSONObject(JSONObject jsonObject) {
         Bid bid = new Bid();
         if (jsonObject == null) {
@@ -285,10 +299,17 @@ public class Bid {
         bid.exp = jsonObject.optInt("exp", -1);
 
         JSONObject ext = jsonObject.optJSONObject("ext");
+        String clickTarget = null;
         if (ext != null) {
             bid.prebid = Prebid.fromJSONObject(ext.optJSONObject("prebid"));
             bid.mobileSdkPassThrough = MobileSdkPassThrough.create(ext);
+
+            JSONObject bideaseJson = ext.optJSONObject("bidease");
+            if (bideaseJson != null) {
+                clickTarget = bideaseJson.optString("click_target");
+            }
         }
+        bid.bidease = new Bidease(clickTarget);
 
         substituteMacros(bid);
 

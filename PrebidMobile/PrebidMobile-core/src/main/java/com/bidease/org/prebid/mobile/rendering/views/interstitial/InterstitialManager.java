@@ -146,6 +146,16 @@ public class InterstitialManager implements InterstitialManagerInterface {
     }
 
     @Override
+    public void interstitialAdShouldOpenStore() {
+        if (interstitialDisplayDelegate != null) {
+            interstitialDisplayDelegate.interstitialShouldOpenStore();
+        }
+        if (interstitialVideoDelegate != null) {
+            interstitialVideoDelegate.onVideoInterstitialShouldOpenStore();
+        }
+    }
+
+    @Override
     public void interstitialClosed(View viewToClose) {
         LogUtil.debug(TAG, "interstitialClosed");
 

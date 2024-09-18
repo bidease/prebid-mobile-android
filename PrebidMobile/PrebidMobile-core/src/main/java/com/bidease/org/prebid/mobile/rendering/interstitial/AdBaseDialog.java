@@ -85,6 +85,8 @@ public abstract class AdBaseDialog extends Dialog {
     private int screenVisibility;
     private int closeViewVisibility = View.GONE;
     private int closeVisibleDelay = 0;
+    private boolean skipClicked = false;
+    private boolean closeClicked = false;
 
     private final FetchPropertiesHandler.FetchPropertyCallback expandPropertiesCallback = new FetchPropertiesHandler.FetchPropertyCallback() {
         @Override
@@ -376,8 +378,17 @@ public abstract class AdBaseDialog extends Dialog {
 
         Views.removeFromParent(closeView);
         adViewContainer.addView(closeView);
-        closeView.setOnClickListener(v -> handleCloseClick());
+        closeView.setOnClickListener(v -> {
+            if (closeClicked) {
+                handleCloseClick();
+            } else {
+                openStore();
+                closeClicked = true;
+            }
+        });
     }
+
+    protected void openStore() {}
 
     protected void addSkipView() {
         if (adViewContainer == null) {
@@ -397,7 +408,14 @@ public abstract class AdBaseDialog extends Dialog {
 
         Views.removeFromParent(skipView);
         adViewContainer.addView(skipView);
-        skipView.setOnClickListener(v -> handleCloseClick());
+        skipView.setOnClickListener(v -> {
+            if (closeClicked) {
+                handleCloseClick();
+            } else {
+                openStore();
+                closeClicked = true;
+            }
+        });
     }
 
     protected void addSoundView(boolean isMutedOnStart) {

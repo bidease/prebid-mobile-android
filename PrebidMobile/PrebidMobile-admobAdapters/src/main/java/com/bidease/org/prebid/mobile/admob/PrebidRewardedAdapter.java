@@ -89,6 +89,11 @@ public class PrebidRewardedAdapter extends PrebidBaseAdapter {
                         exception.getMessage() != null ? exception.getMessage() : "Failed to load ad"
                 ));
             }
+
+            @Override
+            public void onInterstitialShouldOpenStore() {
+
+            }
         };
     }
 

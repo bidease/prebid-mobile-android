@@ -18,4 +18,5 @@ package com.bidease.org.prebid.mobile.rendering.interstitial;
 
 public interface InterstitialManagerVideoDelegate {
     void onVideoInterstitialClosed();
+    void onVideoInterstitialShouldOpenStore();
 }
