@@ -19,6 +19,7 @@ package com.bidease.org.prebid.mobile.rendering.bidding.data.bid;
 
 import android.util.Base64;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.json.JSONArray;
@@ -60,6 +61,8 @@ public class Bid {
     private Prebid prebid;
     // "bidease" object from "ext"
     private Bidease bidease;
+    // "nroa" object from "ext"
+    private Nroa nroa;
 
     // Win notice URL called by the exchange if the bid wins (not  necessarily indicative of a delivered, viewed, or billable ad);
     // optional means of serving ad markup
@@ -169,6 +172,14 @@ public class Bid {
             prebid = new Prebid();
         }
         return prebid;
+    }
+
+    @NonNull
+    public Nroa getNroa() {
+        if (nroa == null) {
+            nroa = new Nroa("");
+        }
+        return nroa;
     }
 
     public String getNurl() {
@@ -300,6 +311,7 @@ public class Bid {
 
         JSONObject ext = jsonObject.optJSONObject("ext");
         String clickTarget = null;
+        String erid = "";
         if (ext != null) {
             bid.prebid = Prebid.fromJSONObject(ext.optJSONObject("prebid"));
             bid.mobileSdkPassThrough = MobileSdkPassThrough.create(ext);
@@ -308,8 +320,14 @@ public class Bid {
             if (bideaseJson != null) {
                 clickTarget = bideaseJson.optString("click_target");
             }
+
+            JSONObject nroaJson = ext.optJSONObject("nroa");
+            if (nroaJson != null) {
+                erid = nroaJson.optString("erid");
+            }
         }
         bid.bidease = new Bidease(clickTarget);
+        bid.nroa = new Nroa(erid);
 
         substituteMacros(bid);
 
