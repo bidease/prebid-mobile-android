@@ -81,6 +81,7 @@ public class AdUnitConfiguration {
     private String countryAlpha3 = null;
     @Nullable
     private String impTagId = null;
+    private boolean onlyDataLoad = false; // if true - views will not create
 
 
     public void modifyUsingBidResponse(@Nullable BidResponse bidResponse) {
@@ -519,6 +520,14 @@ public class AdUnitConfiguration {
     @Nullable
     public String getIp() {
         return ip;
+    }
+
+    public void setOnlyDataLoad(boolean onlyDataLoad) {
+        this.onlyDataLoad = onlyDataLoad;
+    }
+
+    public boolean isOnlyDataLoad() {
+        return onlyDataLoad;
     }
 
     public void setCountryAlpha3(@Nullable String countryAlpha3) {

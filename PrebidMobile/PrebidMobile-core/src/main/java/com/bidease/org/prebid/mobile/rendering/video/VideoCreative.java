@@ -322,14 +322,15 @@ public class VideoCreative extends VideoCreativeProtocol
     }
 
     private void loadContinued() {
-        try {
-            createCreativeView();
+        if (!model.getAdConfiguration().isOnlyDataLoad()) {
+            try {
+                createCreativeView();
+            } catch (AdException e) {
+                getResolutionListener().creativeFailed(e);
+                return;
+            }
+            setCreativeView(videoCreativeView);
         }
-        catch (AdException e) {
-            getResolutionListener().creativeFailed(e);
-            return;
-        }
-        setCreativeView(videoCreativeView);
         //VideoView has been created. Send adDidLoad() to pubs
         onReadyForDisplay();
     }

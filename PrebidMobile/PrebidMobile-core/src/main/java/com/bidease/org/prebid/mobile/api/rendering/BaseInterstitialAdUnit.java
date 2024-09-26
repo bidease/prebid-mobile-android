@@ -100,6 +100,10 @@ public abstract class BaseInterstitialAdUnit {
         adUnitConfig.setImpTagId(impTagId);
     }
 
+    public void setOnlyDataLoad(boolean onlyDataLoad) {
+        adUnitConfig.setOnlyDataLoad(onlyDataLoad);
+    }
+
     /**
      * Executes ad loading if no request is running.
      */
@@ -128,7 +132,7 @@ public abstract class BaseInterstitialAdUnit {
      * Executes interstitial display if auction winner is defined.
      */
     public void show() {
-        if (!isAuctionWinnerReadyToDisplay()) {
+        if (!isAuctionWinnerReadyToDisplay() || adUnitConfig.isOnlyDataLoad()) {
             LogUtil.debug(TAG, "show(): Ad is not yet ready for display!");
             return;
         }
