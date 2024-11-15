@@ -59,7 +59,9 @@ public class ScreenStateReceiver extends BroadcastReceiver {
         filter.addAction(Intent.ACTION_USER_PRESENT);
 
         applicationContext = context.getApplicationContext();
-        applicationContext.registerReceiver(this, filter);
+        try {
+            applicationContext.registerReceiver(this, filter);
+        } catch (Throwable ignored) {}
     }
 
     public void unregister() {
@@ -68,7 +70,9 @@ public class ScreenStateReceiver extends BroadcastReceiver {
             return;
         }
 
-        applicationContext.unregisterReceiver(this);
+        try {
+            applicationContext.unregisterReceiver(this);
+        } catch (Throwable ignored) {}
         applicationContext = null;
     }
 }
