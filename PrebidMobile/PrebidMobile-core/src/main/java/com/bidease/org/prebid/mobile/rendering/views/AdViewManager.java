@@ -114,9 +114,13 @@ public class AdViewManager implements CreativeViewListener, TransactionManagerLi
     public void creativeWasClicked(AbstractCreative creative, String url) {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
-        Context context = contextReference.get();
-        if (context != null) {
-            context.startActivity(i);
+        try {
+            Context context = contextReference.get();
+            if (context != null) {
+                context.startActivity(i);
+            }
+        } catch (Throwable e) {
+            LogUtil.error(TAG, "Unable to open click url " + url + ". Activity was not found");
         }
         adViewListener.creativeClicked(url);
     }
