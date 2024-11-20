@@ -56,4 +56,6 @@ public interface InterstitialViewListener {
     void onAdClosed(InterstitialView interstitialView);
 
     void onAdShouldOpenStore(InterstitialView interstitialView);
+
+    boolean shouldTriggerClickOnClose();
 }

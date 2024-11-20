@@ -34,7 +34,9 @@ import androidx.annotation.VisibleForTesting;
 import org.json.JSONObject;
 import com.bidease.org.prebid.mobile.LogUtil;
 import com.bidease.org.prebid.mobile.api.exceptions.AdException;
+import com.bidease.org.prebid.mobile.configuration.AdUnitConfiguration;
 import com.bidease.org.prebid.mobile.core.R;
+import com.bidease.org.prebid.mobile.rendering.models.HTMLCreative;
 import com.bidease.org.prebid.mobile.rendering.models.InterstitialDisplayPropertiesInternal;
 import com.bidease.org.prebid.mobile.rendering.models.internal.MraidVariableContainer;
 import com.bidease.org.prebid.mobile.rendering.mraid.handler.FetchPropertiesHandler;
@@ -379,7 +381,7 @@ public abstract class AdBaseDialog extends Dialog {
         Views.removeFromParent(closeView);
         adViewContainer.addView(closeView);
         closeView.setOnClickListener(v -> {
-            if (closeClicked) {
+            if (!shouldTriggerClickOnClose() || closeClicked) {
                 handleCloseClick();
             } else {
                 openStore();
@@ -387,6 +389,8 @@ public abstract class AdBaseDialog extends Dialog {
             }
         });
     }
+
+    protected boolean shouldTriggerClickOnClose() { return true; }
 
     protected void openStore() {}
 
@@ -409,11 +413,11 @@ public abstract class AdBaseDialog extends Dialog {
         Views.removeFromParent(skipView);
         adViewContainer.addView(skipView);
         skipView.setOnClickListener(v -> {
-            if (closeClicked) {
+            if (!shouldTriggerClickOnClose() || skipClicked) {
                 handleCloseClick();
             } else {
                 openStore();
-                closeClicked = true;
+                skipClicked = true;
             }
         });
     }

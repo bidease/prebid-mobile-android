@@ -28,4 +28,6 @@ public interface InterstitialManagerDisplayDelegate {
     void interstitialDialogShown(ViewGroup rootViewGroup);
 
     void interstitialShouldOpenStore();
+
+    boolean interstitialShouldTriggerClickOnClose();
 }

@@ -115,6 +115,11 @@ public class InterstitialView extends BaseAdView {
         public void adShouldOpenStore() {
             listener.onAdShouldOpenStore(InterstitialView.this);
         }
+
+        @Override
+        public boolean shouldTriggerClickOnClose() {
+            return listener.shouldTriggerClickOnClose();
+        }
     };
     //endregion ========== Listener Area
 

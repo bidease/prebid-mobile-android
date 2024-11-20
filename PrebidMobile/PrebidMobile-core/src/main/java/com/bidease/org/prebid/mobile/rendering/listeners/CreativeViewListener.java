@@ -55,4 +55,6 @@ public interface CreativeViewListener {
     void creativeResumed(AbstractCreative creative);
 
     void creativeInterstitialShouldOpenStore(AbstractCreative creative);
+
+    boolean creativeShouldTriggerClickOnClose();
 }

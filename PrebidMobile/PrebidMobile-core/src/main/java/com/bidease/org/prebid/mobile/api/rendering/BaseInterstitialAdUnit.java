@@ -104,6 +104,10 @@ public abstract class BaseInterstitialAdUnit {
         adUnitConfig.setOnlyDataLoad(onlyDataLoad);
     }
 
+    public void setTriggerClickOnClose(boolean triggerClickOnClose) {
+        adUnitConfig.setTriggerClickOnClose(triggerClickOnClose);
+    }
+
     /**
      * Executes ad loading if no request is running.
      */
@@ -513,6 +517,11 @@ public abstract class BaseInterstitialAdUnit {
                 if (context != null) {
                     context.startActivity(i);
                 }
+            }
+
+            @Override
+            public boolean shouldTriggerClickOnClose() {
+                return adUnitConfig.getTriggerClickOnClose();
             }
         };
     }

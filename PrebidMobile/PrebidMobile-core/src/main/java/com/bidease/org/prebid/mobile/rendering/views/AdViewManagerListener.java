@@ -72,4 +72,6 @@ public abstract class AdViewManagerListener {
     public void videoCreativePlaybackFinished() {}
 
     public void adShouldOpenStore() {}
+
+    public boolean shouldTriggerClickOnClose() { return true; }
 }

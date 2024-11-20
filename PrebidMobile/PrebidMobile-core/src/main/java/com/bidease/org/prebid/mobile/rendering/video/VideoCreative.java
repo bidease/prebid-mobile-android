@@ -306,6 +306,14 @@ public class VideoCreative extends VideoCreativeProtocol
         }
     }
 
+    @Override
+    public boolean videoShouldTriggerClickOnClose() {
+        if (getCreativeViewListener() != null) {
+            return getCreativeViewListener().creativeShouldTriggerClickOnClose();
+        }
+        return true;
+    }
+
     public long getVideoSkipOffset() {
         return model.getSkipOffset();
     }

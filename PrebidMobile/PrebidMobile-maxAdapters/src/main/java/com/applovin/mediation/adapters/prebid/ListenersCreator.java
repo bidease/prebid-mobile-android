@@ -89,6 +89,11 @@ public class ListenersCreator {
             public void onInterstitialShouldOpenStore() {
 
             }
+
+            @Override
+            public boolean shouldTriggerClickOnClose() {
+                return true;
+            }
         };
     }
 
@@ -123,6 +128,11 @@ public class ListenersCreator {
             @Override
             public void onInterstitialShouldOpenStore() {
 
+            }
+
+            @Override
+            public boolean shouldTriggerClickOnClose() {
+                return true;
             }
         };
     }

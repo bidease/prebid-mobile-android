@@ -89,6 +89,11 @@ public class PrebidInterstitialAdapter extends PrebidBaseAdapter {
             public void onInterstitialShouldOpenStore() {
 
             }
+
+            @Override
+            public boolean shouldTriggerClickOnClose() {
+                return true;
+            }
         };
     }
 

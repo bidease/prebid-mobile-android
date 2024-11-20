@@ -107,6 +107,15 @@ public class InterstitialController implements PrebidMobileInterstitialControlle
                 listener.onInterstitialShouldOpenStore();
             }
         }
+
+        @Override
+        public boolean shouldTriggerClickOnClose() {
+            LogUtil.debug(TAG, "shouldTriggerClickOnClose");
+            if (listener != null) {
+                return listener.shouldTriggerClickOnClose();
+            }
+            return true;
+        }
     };
 
     public InterstitialController(Context context, InterstitialControllerListener listener)

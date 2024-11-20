@@ -229,6 +229,11 @@ public class InterstitialVideo extends AdBaseDialog {
         interstitialManager.interstitialAdShouldOpenStore();
     }
 
+    @Override
+    protected boolean shouldTriggerClickOnClose() {
+        return interstitialManager.interstitialShouldTriggerClickOnClose();
+    }
+
     protected void init() {
         handler = new Handler(Looper.getMainLooper());
         timer = new Timer();

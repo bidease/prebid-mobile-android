@@ -78,6 +78,11 @@ public class AdInterstitialDialog extends AdBaseDialog {
     }
 
     @Override
+    protected boolean shouldTriggerClickOnClose() {
+        return interstitialManager.interstitialShouldTriggerClickOnClose();
+    }
+
+    @Override
     protected void handleDialogShow() {
         Views.removeFromParent(adViewContainer);
         addContentView(adViewContainer,

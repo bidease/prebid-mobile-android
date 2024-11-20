@@ -30,4 +30,6 @@ public interface InterstitialControllerListener {
     void onInterstitialClosed();
 
     void onInterstitialShouldOpenStore();
+
+    boolean shouldTriggerClickOnClose();
 }

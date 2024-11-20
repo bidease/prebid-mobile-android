@@ -27,4 +27,6 @@ public interface InterstitialManagerInterface {
     void interstitialDialogShown(ViewGroup rootViewGroup);
 
     void interstitialAdShouldOpenStore();
+
+    boolean interstitialShouldTriggerClickOnClose();
 }

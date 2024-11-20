@@ -82,6 +82,7 @@ public class AdUnitConfiguration {
     @Nullable
     private String impTagId = null;
     private boolean onlyDataLoad = false; // if true - views will not create
+    private boolean triggerClickOnClose = true;
 
 
     public void modifyUsingBidResponse(@Nullable BidResponse bidResponse) {
@@ -528,6 +529,14 @@ public class AdUnitConfiguration {
 
     public boolean isOnlyDataLoad() {
         return onlyDataLoad;
+    }
+
+    public void setTriggerClickOnClose(boolean triggerClickOnClose) {
+        this.triggerClickOnClose = triggerClickOnClose;
+    }
+
+    public boolean getTriggerClickOnClose() {
+        return triggerClickOnClose;
     }
 
     public void setCountryAlpha3(@Nullable String countryAlpha3) {

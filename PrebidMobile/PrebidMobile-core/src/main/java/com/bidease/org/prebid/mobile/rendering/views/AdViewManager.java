@@ -150,6 +150,12 @@ public class AdViewManager implements CreativeViewListener, TransactionManagerLi
     }
 
     @Override
+    public boolean creativeShouldTriggerClickOnClose() {
+        LogUtil.debug(TAG, "creativeShouldTriggerClickOnClose");
+        return adViewListener.shouldTriggerClickOnClose();
+    }
+
+    @Override
     public void creativeDidExpand(AbstractCreative creative) {
         adViewListener.creativeExpanded();
     }

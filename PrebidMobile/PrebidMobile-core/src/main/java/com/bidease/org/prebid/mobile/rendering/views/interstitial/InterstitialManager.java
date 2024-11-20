@@ -156,6 +156,18 @@ public class InterstitialManager implements InterstitialManagerInterface {
     }
 
     @Override
+    public boolean interstitialShouldTriggerClickOnClose() {
+        boolean shouldTriggerClickOnClose = true;
+        if (interstitialDisplayDelegate != null) {
+            shouldTriggerClickOnClose &= interstitialDisplayDelegate.interstitialShouldTriggerClickOnClose();
+        }
+        if (interstitialVideoDelegate != null) {
+            shouldTriggerClickOnClose &= interstitialVideoDelegate.videoShouldTriggerClickOnClose();
+        }
+        return shouldTriggerClickOnClose;
+    }
+
+    @Override
     public void interstitialClosed(View viewToClose) {
         LogUtil.debug(TAG, "interstitialClosed");
 
