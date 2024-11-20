@@ -17,7 +17,6 @@
 package com.bidease.org.prebid.mobile.rendering.session.manager;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -89,7 +88,7 @@ public class OmAdSessionManager {
             return Omid.isActive();
         }
         catch (Throwable e) {
-            LogUtil.error(TAG, "Did you add omsdk-android.aar? Failed to init openMeasurementSDK: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Did you add omsdk-android.aar? Failed to init openMeasurementSDK: " + e.getMessage());
         }
         return false;
     }
@@ -165,7 +164,7 @@ public class OmAdSessionManager {
             adEvents.loaded(vastProperties);
         }
         catch (Exception e) {
-            LogUtil.error(TAG, "Failed to register videoAdLoaded. Reason: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failed to register videoAdLoaded. Reason: " + e.getMessage());
         }
     }
 
@@ -195,7 +194,7 @@ public class OmAdSessionManager {
             adEvents.impressionOccurred();
         }
         catch (IllegalArgumentException | IllegalStateException e) {
-            LogUtil.error(TAG, "Failed to registerImpression: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failed to registerImpression: " + e.getMessage());
         }
     }
 
@@ -349,7 +348,7 @@ public class OmAdSessionManager {
             adSession.registerAdView(adView);
         }
         catch (IllegalArgumentException e) {
-            LogUtil.error(TAG, "Failed to registerAdView. " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failed to registerAdView. " + e.getMessage());
         }
     }
 
@@ -374,7 +373,7 @@ public class OmAdSessionManager {
                 );
             }
         } catch (IllegalArgumentException e) {
-            LogUtil.error(TAG, "Failed to addObstruction. Reason: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failed to addObstruction. Reason: " + e.getMessage());
         }
     }
 
@@ -398,7 +397,7 @@ public class OmAdSessionManager {
                                                                        false);
         }
         catch (IllegalArgumentException e) {
-            LogUtil.error(TAG, "Failure createAdSessionConfiguration: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failure createAdSessionConfiguration: " + e.getMessage());
             return null;
         }
     }
@@ -407,8 +406,8 @@ public class OmAdSessionManager {
         try {
             return Omid.isActive();
         }
-        catch (Throwable ignore) {
-            LogUtil.error(TAG, "Failed to check OpenMeasurement status. Did you include omsdk-android? " + Log.getStackTraceString(ignore));
+        catch (Throwable e) {
+            LogUtil.error(TAG, "Failed to check OpenMeasurement status. Did you include omsdk-android? " + e.getMessage());
         }
         return false;
     }
@@ -432,7 +431,7 @@ public class OmAdSessionManager {
 
             partner = Partner.createPartner(usedPartnerName, usedPartnerVersion);
         } catch (IllegalArgumentException e) {
-            LogUtil.error(TAG, "Failed to initPartner. Reason: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failed to initPartner. Reason: " + e.getMessage());
         }
     }
 
@@ -464,7 +463,7 @@ public class OmAdSessionManager {
             mediaEvents = MediaEvents.createMediaEvents(adSession);
         }
         catch (IllegalArgumentException e) {
-            LogUtil.error(TAG, "Failure initMediaAdEvents: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failure initMediaAdEvents: " + e.getMessage());
         }
     }
 
@@ -476,7 +475,7 @@ public class OmAdSessionManager {
             adEvents = AdEvents.createAdEvents(adSession);
         }
         catch (IllegalArgumentException e) {
-            LogUtil.error(TAG, "Failure initAdEvents: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failure initAdEvents: " + e.getMessage());
         }
     }
 
@@ -487,7 +486,7 @@ public class OmAdSessionManager {
             return AdSessionContext.createHtmlAdSessionContext(partner, adView, contentUrl, customReferenceData);
         }
         catch (IllegalArgumentException e) {
-            LogUtil.error(TAG, "Failure createAdSessionContext: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failure createAdSessionContext: " + e.getMessage());
             return null;
         }
     }
@@ -503,7 +502,7 @@ public class OmAdSessionManager {
             );
         }
         catch (IllegalArgumentException e) {
-            LogUtil.error(TAG, "Failure createAdSessionContext: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failure createAdSessionContext: " + e.getMessage());
             return null;
         }
     }
@@ -525,11 +524,11 @@ public class OmAdSessionManager {
             return createAdSessionContext(verificationScriptResources, contentUrl);
         }
         catch (IllegalArgumentException e) {
-            LogUtil.error(TAG, "Failure createAdSessionContext: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failure createAdSessionContext: " + e.getMessage());
             return null;
         }
         catch (MalformedURLException e) {
-            LogUtil.error(TAG, "Failure createAdSessionContext: " + Log.getStackTraceString(e));
+            LogUtil.error(TAG, "Failure createAdSessionContext: " + e.getMessage());
             return null;
         }
     }
