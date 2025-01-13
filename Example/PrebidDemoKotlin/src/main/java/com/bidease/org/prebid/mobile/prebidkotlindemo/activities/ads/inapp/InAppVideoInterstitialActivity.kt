@@ -40,6 +40,8 @@ class InAppVideoInterstitialActivity : BaseAdActivity() {
 
     private fun createAd() {
         adUnit = InterstitialAdUnit(this, CONFIG_ID, EnumSet.of(AdUnitFormat.VIDEO))
+//        adUnit?.setOnlyDataLoad(true)
+        adUnit?.setTriggerClickOnClose(false)
         adUnit?.setInterstitialAdUnitListener(object : InterstitialAdUnitListener {
             override fun onAdLoaded(interstitialAdUnit: InterstitialAdUnit?) {
                 adUnit?.show()

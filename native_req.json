@@ -1,0 +1,73 @@
+{
+  "imp": [
+    {
+      "id": "2ecee6c0-170a-48f6-a1f6-de5a86d4e4ef",
+      "instl": 0,
+      "clickbrowser": 0,
+      "secure": 1,
+      "native": {
+        "request": "{\"ver\":\"1.2\",\"context\":2,\"contextsubtype\":20,\"plcmttype\":1,\"seq\":0,\"assets\":[{\"required\":1,\"title\":{\"len\":40}},{\"required\":1,\"img\":{\"type\":1,\"w\":120,\"wmin\":120,\"h\":120,\"hmin\":120}},{\"required\":1,\"img\":{\"type\":3,\"w\":600,\"wmin\":600,\"h\":600,\"hmin\":600}},{\"required\":1,\"data\":{\"type\":1,\"len\":90}},{\"required\":1,\"data\":{\"type\":2,\"len\":120}},{\"required\":1,\"data\":{\"type\":12,\"len\":30}}],\"eventtrackers\":[{\"event\":1,\"methods\":[1,2]}]}",
+        "ver": "1.2"
+      },
+      "ext": {
+        "prebid": {
+          "storedrequest": {
+            "id": "prebid-ita-banner-native-styles"
+          }
+        }
+      }
+    }
+  ],
+  "id": "2ecee6c0-170a-48f6-a1f6-de5a86d4e4ef",
+  "app": {
+    "name": "Prebid Kotlin Demo",
+    "bundle": "com.bidease.connect.demo.android",
+    "ver": "1.0.0",
+    "publisher": {
+      "id": "0689a263-318d-448b-a3d4-b02e8a709d9d"
+    },
+    "ext": {
+      "prebid": {
+        "source": "beconnect",
+        "version": "0.0.1"
+      }
+    }
+  },
+  "device": {
+    "ua": "Mozilla\/5.0 (Linux; Android 11; sdk_gphone_x86 Build\/RSR1.201013.001; wv) AppleWebKit\/537.36 (KHTML, like Gecko) Version\/4.0 Chrome\/83.0.4103.106 Mobile Safari\/537.36",
+    "lmt": 0,
+    "make": "Google",
+    "model": "sdk_gphone_x86",
+    "os": "Android",
+    "osv": "11",
+    "language": "en",
+    "carrier": "Android",
+    "mccmnc": "310-260",
+    "ifa": "c9ea7650-aa66-4b4c-8954-db48d323a33d",
+    "h": 2400,
+    "w": 1080,
+    "connectiontype": 2,
+    "pxratio": 2.625,
+    "geo": {}
+  },
+  "regs": {
+    "ext": {
+      "gdpr": 1
+    }
+  },
+  "user": {},
+  "source": {
+    "tid": "2ecee6c0-170a-48f6-a1f6-de5a86d4e4ef"
+  },
+  "ext": {
+    "prebid": {
+      "storedrequest": {
+        "id": "0689a263-318d-448b-a3d4-b02e8a709d9d"
+      },
+      "cache": {
+        "bids": {}
+      },
+      "targeting": {}
+    }
+  }
+}

@@ -66,16 +66,16 @@ class InAppNativeActivity : BaseAdActivity() {
         }
 
         val title = NativeTitleAsset()
-        title.setLength(90)
+        title.setLength(40)
         title.isRequired = true
         nativeAdUnit.addAsset(title)
 
-        val icon = NativeImageAsset(20, 20, 20, 20)
+        val icon = NativeImageAsset(120, 120, 120, 120)
         icon.imageType = NativeImageAsset.IMAGE_TYPE.ICON
         icon.isRequired = true
         nativeAdUnit.addAsset(icon)
 
-        val image = NativeImageAsset(200, 200, 200, 200)
+        val image = NativeImageAsset(600, 600, 600, 600)
         image.imageType = NativeImageAsset.IMAGE_TYPE.MAIN
         image.isRequired = true
         nativeAdUnit.addAsset(image)
@@ -87,11 +87,13 @@ class InAppNativeActivity : BaseAdActivity() {
         nativeAdUnit.addAsset(data)
 
         val body = NativeDataAsset()
+        body.len = 120
         body.isRequired = true
         body.dataType = NativeDataAsset.DATA_TYPE.DESC
         nativeAdUnit.addAsset(body)
 
         val cta = NativeDataAsset()
+        cta.len = 30
         cta.isRequired = true
         cta.dataType = NativeDataAsset.DATA_TYPE.CTATEXT
         nativeAdUnit.addAsset(cta)

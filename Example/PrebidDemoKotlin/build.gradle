@@ -9,7 +9,8 @@ android {
         targetSdkVersion 33
         versionCode 1
         versionName "1.0.0"
-        applicationId "com.bidease.org.prebid.mobile.prebidkotlindemo"
+//        applicationId "com.bidease.org.prebid.mobile.prebidkotlindemo"
+        applicationId "com.bidease.connect.demo.android"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }

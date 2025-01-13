@@ -26,6 +26,7 @@ import com.bidease.org.prebid.mobile.PrebidMobile
 import com.bidease.org.prebid.mobile.TargetingParams
 import com.bidease.org.prebid.mobile.api.data.InitializationStatus
 import com.bidease.org.prebid.mobile.prebidkotlindemo.utils.Settings
+import com.bidease.org.prebid.mobile.rendering.networking.modelcontrollers.Requester
 
 class CustomApplication : Application() {
 
@@ -51,7 +52,13 @@ class CustomApplication : Application() {
         PrebidMobile.setPrebidServerAccountId("0689a263-318d-448b-a3d4-b02e8a709d9d")
 //        PrebidMobile.setPrebidServerHost(Host.createCustomHost("https://prebid-server-test-j.prebid.org/openrtb2/auction"))
         PrebidMobile.setPrebidServerHost(Host.createCustomHost("https://ortb.bidease.com/bid"))
-        PrebidMobile.setCustomStatusEndpoint("https://prebid-server-test-j.prebid.org/status")
+//        PrebidMobile.setPrebidServerHost(Host.createCustomHost("https://publisher-reporting-api.bidease.com/adm?format=video&interstitial=1&creative_id=567843")) // video interstitial
+//        PrebidMobile.setPrebidServerHost(Host.createCustomHost("https://publisher-reporting-api.bidease.com/adm?format=video&interstitial=1&creative_id=575334")) // broken video interstitial
+//        PrebidMobile.setPrebidServerHost(Host.createCustomHost("https://publisher-reporting-api.bidease.com/adm?format=video&interstitial=1&creative_id=553011")) // banner
+//        PrebidMobile.setCustomHeaders(hashMapOf("Authorization" to "bada627d-1093-4ffa-b27b-afdf98c04f5b"))
+//        Requester.debugPlainGetRequest = true;
+
+//        PrebidMobile.setCustomStatusEndpoint("https://prebid-server-test-j.prebid.org/status")
         PrebidMobile.initializeSdk(applicationContext) { status ->
             if (status == InitializationStatus.SUCCEEDED) {
                 Log.d(TAG, "SDK initialized successfully!")

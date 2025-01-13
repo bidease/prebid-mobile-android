@@ -116,7 +116,9 @@ public class NativeDataAsset extends NativeAsset {
 
             JSONObject dataObject = new JSONObject();
             dataObject.putOpt("type", dataType != null ? dataType.getID() : null);
-            dataObject.putOpt("len", len);
+            if (len > -1) {
+                dataObject.putOpt("len", len);
+            }
             dataObject.putOpt("ext", dataExt);
 
             result.put("data", dataObject);

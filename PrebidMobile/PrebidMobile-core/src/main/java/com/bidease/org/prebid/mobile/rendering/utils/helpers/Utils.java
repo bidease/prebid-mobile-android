@@ -447,6 +447,16 @@ public final class Utils {
         );
     }
 
+    public static View createInfoView(
+            Context context
+    ) {
+        return createButtonToNextPage(context,
+                R.layout.lyt_info,
+                0,
+                Position.BOTTOM_LEFT
+        );
+    }
+
     public static View createCloseView(Context context) {
         return createCloseView(context, null);
     }
