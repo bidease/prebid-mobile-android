@@ -2,6 +2,14 @@ apply from: '../android.gradle'
 apply from: '../publisher.gradle'
 apply from: '../tests.gradle'
 
+android {
+    namespace "com.bidease.org.prebid.mobile.max.adapters"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
 dependencies {
     implementation project(":PrebidMobile")
     implementation "com.applovin:applovin-sdk:11.3.2"

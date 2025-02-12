@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     setCompileSdkVersion(33)
     setBuildToolsVersion("30.0.3")
+    namespace "om.bidease.org.prebid.mobile.javademo"
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 33
@@ -14,8 +15,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     buildFeatures {
         dataBinding true

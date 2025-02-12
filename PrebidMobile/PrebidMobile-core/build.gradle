@@ -2,6 +2,8 @@ apply from: '../android.gradle'
 apply from: '../publisher.gradle'
 apply from: '../tests.gradle'
 
+android.buildFeatures.buildConfig true
+
 android {
     def getGitHash = { ->
         def stdout = new ByteArrayOutputStream()
@@ -10,6 +12,11 @@ android {
             standardOutput = stdout
         }
         return stdout.toString().trim()
+    }
+    namespace "com.bidease.org.prebid.mobile.core"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     defaultConfig {

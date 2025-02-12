@@ -1,6 +1,14 @@
 apply from: 'android.gradle'
 apply from: 'publisher.gradle'
 
+android {
+    namespace "com.bidease.org.prebid.mobile"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
 dependencies {
     api project(':PrebidMobile-core')
 }

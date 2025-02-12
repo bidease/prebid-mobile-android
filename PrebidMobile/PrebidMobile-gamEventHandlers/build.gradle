@@ -3,6 +3,12 @@ apply from: '../publisher.gradle'
 apply from: '../tests.gradle'
 
 android {
+
+    namespace "com.bidease.org.prebid.mobile.eventhandlers"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
     defaultConfig {
         minSdkVersion 19
     }
