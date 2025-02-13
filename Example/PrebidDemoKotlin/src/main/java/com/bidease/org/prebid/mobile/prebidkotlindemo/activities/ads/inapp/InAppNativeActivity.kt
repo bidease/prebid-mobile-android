@@ -21,6 +21,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.bidease.org.prebid.mobile.*
 import com.bidease.org.prebid.mobile.prebidkotlindemo.activities.BaseAdActivity
 import com.bidease.org.prebid.mobile.prebidkotlindemo.utils.ImageUtils
@@ -44,7 +45,12 @@ class InAppNativeActivity : BaseAdActivity() {
         val extras = Bundle()
         nativeAdUnit = configureNativeAdUnit()
         nativeAdUnit?.fetchDemand(extras) {
-            inflatePrebidNativeAd(NativeAdProvider.getNativeAd(extras)!!)
+            val nativeAd = NativeAdProvider.getNativeAd(extras)
+            if (nativeAd == null) {
+                Toast.makeText(this, "nativeAd is null", Toast.LENGTH_SHORT).show()
+                return@fetchDemand
+            }
+            inflatePrebidNativeAd(nativeAd)
         }
     }
 
