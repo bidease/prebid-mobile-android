@@ -68,7 +68,11 @@ public class PrebidNativeAd {
                 JSONObject details = new JSONObject(content);
                 String admStr = details.getString("adm");
                 JSONObject adm = new JSONObject(admStr);
-                JSONArray asset = adm.getJSONArray("assets");
+                JSONArray asset = adm.optJSONArray("assets");
+                if (asset == null) {
+                    adm = adm.getJSONObject("native");
+                    asset = adm.optJSONArray("assets");
+                }
                 final PrebidNativeAd ad = new PrebidNativeAd();
                 CacheManager.registerCacheExpiryListener(cacheId, new CacheExpireListenerImpl(ad));
                 for (int i = 0; i < asset.length(); i++) {
