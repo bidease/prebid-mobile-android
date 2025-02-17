@@ -1,6 +1,7 @@
 package com.bidease.org.prebid.mobile;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import org.json.JSONObject;
@@ -206,6 +207,22 @@ public class NativeAdUnit extends AdUnit {
     @VisibleForTesting
     public NativeAdUnitConfiguration getNativeConfiguration() {
         return nativeConfiguration;
+    }
+
+    public void setBidFloor(@Nullable Double bidFloor) {
+        configuration.setBidFloor(bidFloor);
+    }
+
+    public void setCountryAlpha3(@Nullable String countryAlpha3) {
+        configuration.setCountryAlpha3(countryAlpha3);
+    }
+
+    public void setIp(@Nullable String ip) {
+        configuration.setIp(ip);
+    }
+
+    public void setImpTagId(@Nullable String impTagId) {
+        configuration.setImpTagId(impTagId);
     }
 
 }
