@@ -31,6 +31,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.bidease.org.prebid.mobile.rendering.bidding.events.EventsNotifier;
+import com.bidease.org.prebid.mobile.rendering.bidding.loader.BidLoaderCache;
 import com.bidease.org.prebid.mobile.rendering.utils.helpers.ExternalViewerUtils;
 
 import java.lang.ref.WeakReference;
@@ -342,6 +343,7 @@ public class PrebidNativeAd {
      * @return true if views registered successfully
      */
     public boolean registerView(View container, List<View> clickableViews, final PrebidNativeAdEventListener listener) {
+        BidLoaderCache.getInstance().removeNativeResponses();
         if (container == null || clickableViews == null || clickableViews.isEmpty()) {
             return false;
         }

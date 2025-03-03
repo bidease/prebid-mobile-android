@@ -51,6 +51,7 @@ import com.bidease.org.prebid.mobile.rendering.bidding.listeners.BidRequesterLis
 import com.bidease.org.prebid.mobile.rendering.bidding.listeners.DisplayVideoListener;
 import com.bidease.org.prebid.mobile.rendering.bidding.listeners.DisplayViewListener;
 import com.bidease.org.prebid.mobile.rendering.bidding.loader.BidLoader;
+import com.bidease.org.prebid.mobile.rendering.bidding.loader.BidLoaderCache;
 import com.bidease.org.prebid.mobile.rendering.models.AdPosition;
 import com.bidease.org.prebid.mobile.rendering.models.PlacementType;
 import com.bidease.org.prebid.mobile.rendering.models.internal.VisibilityTrackerOption;
@@ -99,6 +100,7 @@ public class BannerView extends FrameLayout {
 
         @Override
         public void onAdDisplayed() {
+            BidLoaderCache.getInstance().removeResponse(adUnitConfig);
             if (bannerViewListener != null) {
                 bannerViewListener.onAdDisplayed(BannerView.this);
                 eventHandler.trackImpression();

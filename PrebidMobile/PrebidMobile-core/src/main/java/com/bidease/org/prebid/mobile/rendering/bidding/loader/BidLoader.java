@@ -60,6 +60,7 @@ public class BidLoader {
                 failedToLoadBid(bidResponse.getParseError());
                 return;
             }
+            BidLoaderCache.getInstance().putResponse(adConfiguration, response.responseString);
             checkTmax(response, bidResponse);
             updateAdUnitConfiguration(bidResponse);
             if (requestListener != null) {
@@ -185,6 +186,15 @@ public class BidLoader {
 
     private void sendBidRequest(AdUnitConfiguration config) {
         currentlyLoading.set(true);
+        String cachedResponse = BidLoaderCache.getInstance().getResponse(config);
+        if (cachedResponse != null) {
+            BaseNetworkTask.GetUrlResult result = new BaseNetworkTask.GetUrlResult();
+            result.responseString = cachedResponse;
+            result.statusCode = 200;
+            result.responseTime = 0;
+            responseHandler.onResponse(result);
+            return;
+        }
         if (bidRequester == null) {
             bidRequester = new BidRequester(config, new AdRequestInput(), responseHandler);
         }

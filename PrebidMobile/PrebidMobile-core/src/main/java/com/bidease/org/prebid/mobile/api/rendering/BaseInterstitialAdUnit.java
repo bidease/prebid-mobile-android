@@ -43,6 +43,7 @@ import com.bidease.org.prebid.mobile.rendering.bidding.data.bid.BidResponse;
 import com.bidease.org.prebid.mobile.rendering.bidding.interfaces.InterstitialControllerListener;
 import com.bidease.org.prebid.mobile.rendering.bidding.listeners.BidRequesterListener;
 import com.bidease.org.prebid.mobile.rendering.bidding.loader.BidLoader;
+import com.bidease.org.prebid.mobile.rendering.bidding.loader.BidLoaderCache;
 import com.bidease.org.prebid.mobile.rendering.models.AdPosition;
 import com.bidease.org.prebid.mobile.rendering.models.CreativeModelsMaker;
 
@@ -136,6 +137,7 @@ public abstract class BaseInterstitialAdUnit {
      * Executes interstitial display if auction winner is defined.
      */
     public void show() {
+        BidLoaderCache.getInstance().removeResponse(adUnitConfig);
         if (!isAuctionWinnerReadyToDisplay() || adUnitConfig.isOnlyDataLoad()) {
             LogUtil.debug(TAG, "show(): Ad is not yet ready for display!");
             return;
