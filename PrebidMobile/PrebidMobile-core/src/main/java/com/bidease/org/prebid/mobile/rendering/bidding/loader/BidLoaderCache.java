@@ -74,7 +74,7 @@ public class BidLoaderCache {
             if (adUnitConfiguration.getImpTagId() != null) {
                 key.append(adUnitConfiguration.getImpTagId());
             }
-            key.append(key);
+            keys.add(key.toString());
         }
         return keys;
     }
