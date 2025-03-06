@@ -60,7 +60,6 @@ public class BidLoader {
                 failedToLoadBid(bidResponse.getParseError());
                 return;
             }
-            BidLoaderCache.getInstance().putResponse(adConfiguration, response.responseString);
             checkTmax(response, bidResponse);
             updateAdUnitConfiguration(bidResponse);
             if (requestListener != null) {
@@ -69,6 +68,7 @@ public class BidLoader {
             } else {
                 cancelRefresh();
             }
+            BidLoaderCache.getInstance().putResponse(adConfiguration, response.responseString);
         }
 
         @Override

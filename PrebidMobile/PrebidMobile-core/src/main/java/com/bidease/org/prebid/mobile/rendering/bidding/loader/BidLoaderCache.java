@@ -6,6 +6,8 @@ import androidx.annotation.Nullable;
 import com.bidease.org.prebid.mobile.api.data.AdFormat;
 import com.bidease.org.prebid.mobile.configuration.AdUnitConfiguration;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -34,19 +36,25 @@ public class BidLoaderCache {
     private BidLoaderCache() {}
 
     public void putResponse(final @NonNull AdUnitConfiguration adUnitConfiguration, final @NonNull String response) {
-        String key = getKey(adUnitConfiguration);
-        cache.put(key, response);
+        for (String key : getKeys(adUnitConfiguration)) {
+            cache.put(key, response);
+        }
     }
 
     @Nullable
     public String getResponse(final @NonNull AdUnitConfiguration adUnitConfiguration) {
-        String key = getKey(adUnitConfiguration);
-        return cache.get(key);
+        for (String key : getKeys(adUnitConfiguration)) {
+            if (cache.containsKey(key)) {
+                return cache.get(key);
+            }
+        }
+        return null;
     }
 
     public void removeResponse(final @NonNull AdUnitConfiguration adUnitConfiguration) {
-        String key = getKey(adUnitConfiguration);
-        cache.remove(key);
+        for (String key : getKeys(adUnitConfiguration)) {
+            cache.remove(key);
+        }
     }
 
     public void removeNativeResponses() {
@@ -59,11 +67,15 @@ public class BidLoaderCache {
     }
 
     @NonNull
-    private String getKey(final @NonNull AdUnitConfiguration adUnitConfiguration) {
-        StringBuilder key = new StringBuilder(adUnitConfiguration.getAdFormats().toString());
-        if (adUnitConfiguration.getImpTagId() != null) {
-            key.append(adUnitConfiguration.getImpTagId());
+    private List<String> getKeys(final @NonNull AdUnitConfiguration adUnitConfiguration) {
+        List<String> keys = new ArrayList<>();
+        for (AdFormat adFormat : adUnitConfiguration.getAdFormats()) {
+            StringBuilder key = new StringBuilder(adFormat.toString());
+            if (adUnitConfiguration.getImpTagId() != null) {
+                key.append(adUnitConfiguration.getImpTagId());
+            }
+            key.append(key);
         }
-        return key.toString();
+        return keys;
     }
 }
