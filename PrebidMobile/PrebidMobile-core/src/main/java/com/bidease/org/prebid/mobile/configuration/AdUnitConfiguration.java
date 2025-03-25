@@ -83,6 +83,8 @@ public class AdUnitConfiguration {
     private String impTagId = null;
     private boolean onlyDataLoad = false; // if true - views will not create
     private boolean triggerClickOnClose = true;
+    @NonNull
+    private String auctionMinToWin = "";
 
 
     public void modifyUsingBidResponse(@Nullable BidResponse bidResponse) {
@@ -555,6 +557,15 @@ public class AdUnitConfiguration {
     @Nullable
     public String getImpTagId() {
         return impTagId;
+    }
+
+    public void setAuctionMinToWin(final @NonNull String auctionMinToWin) {
+        this.auctionMinToWin = auctionMinToWin;
+    }
+
+    @NonNull
+    public String getAuctionMinToWin() {
+        return auctionMinToWin;
     }
 
     @Override

@@ -21,6 +21,9 @@ import androidx.annotation.NonNull;
 public class MacrosModel {
     public static final String MACROS_AUCTION_PRICE = "\\$\\{AUCTION_PRICE\\}";
     public static final String MACROS_AUCTION_PRICE_BASE_64 = "\\$\\{AUCTION_PRICE:B64\\}";
+    public static final String MACROS_AUCTION_MIN_TO_WIN = "\\$\\{AUCTION_MIN_TO_WIN\\}";
+    public static final String MACROS_AUCTION_MINIMUM_BID_TO_WIN = "\\$\\{AUCTION_MINIMUM_BID_TO_WIN\\}";
+    public static final String MACROS_AUCTION_LOSS = "\\$\\{AUCTION_LOSS\\}";
 
     private static final String MACROS_DEFAULT_VALUE = "\\\\\"\\\\\""; //String representation of "\"\""
 

@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.net.Uri;
 
 import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
@@ -99,6 +100,10 @@ public abstract class BaseInterstitialAdUnit {
 
     public void setImpTagId(@Nullable String impTagId) {
         adUnitConfig.setImpTagId(impTagId);
+    }
+
+    public void setAuctionMinToWin(final @NonNull String auctionMinToWin) {
+        adUnitConfig.setAuctionMinToWin(auctionMinToWin);
     }
 
     public void setOnlyDataLoad(boolean onlyDataLoad) {

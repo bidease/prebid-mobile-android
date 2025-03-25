@@ -225,4 +225,8 @@ public class NativeAdUnit extends AdUnit {
         configuration.setImpTagId(impTagId);
     }
 
+    public void setAuctionMinToWin(final @NonNull String auctionMinToWin) {
+        configuration.setAuctionMinToWin(auctionMinToWin);
+    }
+
 }

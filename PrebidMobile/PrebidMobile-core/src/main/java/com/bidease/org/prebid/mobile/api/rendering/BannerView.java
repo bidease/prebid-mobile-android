@@ -304,6 +304,10 @@ public class BannerView extends FrameLayout {
         adUnitConfig.setImpTagId(impTagId);
     }
 
+    public void setAuctionMinToWin(final @NonNull String auctionMinToWin) {
+        adUnitConfig.setAuctionMinToWin(auctionMinToWin);
+    }
+
     /**
      * Executes ad loading if no request is running.
      */
