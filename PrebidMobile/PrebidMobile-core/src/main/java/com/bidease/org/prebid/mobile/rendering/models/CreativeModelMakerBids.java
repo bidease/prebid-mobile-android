@@ -166,7 +166,11 @@ public class CreativeModelMakerBids {
         if (displayNotifier == null) {
             return;
         }
-        displayNotifier.notifyDisplay(adConfiguration.getAuctionMinToWin());
+        String autionMinToWin = "";
+        if (adConfiguration != null) {
+            autionMinToWin = adConfiguration.getAuctionMinToWin();
+        }
+        displayNotifier.notifyDisplay(autionMinToWin);
         displayNotifier = null;
     }
 }
