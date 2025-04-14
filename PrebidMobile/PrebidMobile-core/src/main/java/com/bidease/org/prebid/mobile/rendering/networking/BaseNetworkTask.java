@@ -278,7 +278,11 @@ public class BaseNetworkTask
 
         connection.setConnectTimeout(PrebidMobile.getTimeoutMillis());
         if (!(this instanceof FileDownloadTask)) {
-            connection.setReadTimeout(SOCKET_TIMEOUT);
+            Integer socketTimeout = PrebidMobile.getSocketTimeoutMillis();
+            if (socketTimeout == null) {
+                socketTimeout = SOCKET_TIMEOUT;
+            }
+            connection.setReadTimeout(socketTimeout);
         }
 
         if ("POST".equals(param.requestType)) {

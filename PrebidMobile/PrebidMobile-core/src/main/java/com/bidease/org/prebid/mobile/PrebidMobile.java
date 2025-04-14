@@ -113,6 +113,8 @@ public class PrebidMobile {
     private static boolean useCacheForReportingWithRenderingApi = false;
 
     private static int timeoutMillis = 2_000;
+    @Nullable
+    private static Integer socketTimeoutMillis = null;
 
     private static final String TAG = PrebidMobile.class.getSimpleName();
 
@@ -153,6 +155,15 @@ public class PrebidMobile {
 
     public static void setTimeoutMillis(int timeoutMillis) {
         PrebidMobile.timeoutMillis = timeoutMillis;
+    }
+
+    @Nullable
+    public static Integer getSocketTimeoutMillis() {
+        return socketTimeoutMillis;
+    }
+
+    public static void setSocketTimeoutMillis(@Nullable Integer socketTimeoutMillis) {
+        PrebidMobile.socketTimeoutMillis = socketTimeoutMillis;
     }
 
     public static void setPrebidServerAccountId(String accountId) {
