@@ -106,6 +106,10 @@ public abstract class BaseInterstitialAdUnit {
         adUnitConfig.setAuctionMinToWin(auctionMinToWin);
     }
 
+    public void addRootExt(final @NonNull String key, final @NonNull String value) {
+        adUnitConfig.addRootExt(key, value);
+    }
+
     public void setOnlyDataLoad(boolean onlyDataLoad) {
         adUnitConfig.setOnlyDataLoad(onlyDataLoad);
     }

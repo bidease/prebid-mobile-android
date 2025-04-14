@@ -71,6 +71,8 @@ public class AdUnitConfiguration {
     private final HashSet<AdSize> adSizes = new HashSet<>();
     private final ArrayList<DataObject> userDataObjects = new ArrayList<>();
     private final Map<String, Set<String>> extDataDictionary = new HashMap<>();
+
+    private final Map<String, String> rootExt = new HashMap<>();
     private final Set<String> extKeywordsSet = new HashSet<>();
 
     @Nullable
@@ -130,6 +132,18 @@ public class AdUnitConfiguration {
 
     public void clearUserData() {
         userDataObjects.clear();
+    }
+
+    public void addRootExt(
+            final @NonNull String key,
+            final @NonNull String value
+    ) {
+        rootExt.put(key, value);
+    }
+
+    @NonNull
+    public Map<String, String> getRootExt() {
+        return rootExt;
     }
 
     public void addExtData(

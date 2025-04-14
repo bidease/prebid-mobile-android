@@ -229,4 +229,8 @@ public class NativeAdUnit extends AdUnit {
         configuration.setAuctionMinToWin(auctionMinToWin);
     }
 
+    public void addRootExt(final @NonNull String key, final @NonNull String value) {
+        configuration.addRootExt(key, value);
+    }
+
 }

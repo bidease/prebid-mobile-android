@@ -308,6 +308,10 @@ public class BannerView extends FrameLayout {
         adUnitConfig.setAuctionMinToWin(auctionMinToWin);
     }
 
+    public void addRootExt(final @NonNull String key, final @NonNull String value) {
+        adUnitConfig.addRootExt(key, value);
+    }
+
     /**
      * Executes ad loading if no request is running.
      */
