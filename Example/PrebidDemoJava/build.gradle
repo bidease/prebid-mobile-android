@@ -39,7 +39,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     // Ads
-    implementation 'com.google.android.gms:play-services-ads:+'
+    implementation 'com.google.android.gms:play-services-ads:23.0.0'
 
     // Video Player
     implementation 'com.google.android.exoplayer:exoplayer:2.15.1'
