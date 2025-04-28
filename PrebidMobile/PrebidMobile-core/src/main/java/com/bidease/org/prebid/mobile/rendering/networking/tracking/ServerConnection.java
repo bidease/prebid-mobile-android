@@ -22,7 +22,23 @@ import com.bidease.org.prebid.mobile.rendering.networking.BaseNetworkTask;
 import com.bidease.org.prebid.mobile.rendering.networking.ResponseHandler;
 import com.bidease.org.prebid.mobile.rendering.utils.helpers.AppInfoManager;
 
+import java.util.HashMap;
+
 public class ServerConnection {
+
+    public static void fireBideaseEvent(BideaseEvent bideaseEvent, ResponseHandler responseHandler) {
+        BaseNetworkTask networkTask = new BaseNetworkTask(responseHandler);
+        BaseNetworkTask.GetUrlParams params = new BaseNetworkTask.GetUrlParams();
+        params.url = "https://logs.connect.bidease.com/logs";
+        params.requestType = "POST";
+        params.userAgent = AppInfoManager.getUserAgent();
+        params.name = "recordbideaseevents";
+        params.queryParams = bideaseEvent.toJsonString();
+        params.headers = new HashMap<>();
+        params.headers.put("Content-Encoding", "gzip");
+
+        networkTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, params);
+    }
 
     public static void fireWithResult(String url, ResponseHandler responseHandler) {
         BaseNetworkTask networkTask = new BaseNetworkTask(responseHandler);

@@ -145,7 +145,6 @@ public class BidRequest extends BaseBid {
         this.id = id;
     }
 
-    @VisibleForTesting
     public String getId() {
         return id;
     }

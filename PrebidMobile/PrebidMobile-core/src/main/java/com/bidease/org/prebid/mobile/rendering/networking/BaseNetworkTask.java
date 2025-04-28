@@ -42,6 +42,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Locale;
 import java.util.Map;
+import java.util.zip.GZIPOutputStream;
 
 /**
  * Performs HTTP communication in the background, i.e. off the UI thread.
@@ -274,7 +275,8 @@ public class BaseNetworkTask
         connection.setRequestProperty(ACCEPT_LANGUAGE_HEADER, Locale.getDefault().toString());
         connection.setRequestProperty(ACCEPT_HEADER, ACCEPT_HEADER_VALUE);
         connection.setRequestProperty(CONTENT_TYPE_HEADER, CONTENT_TYPE_HEADER_VALUE);
-        this.setCustomHeadersIfAvailable(connection);
+        this.setCustomHeadersIfAvailable(connection, PrebidMobile.getCustomHeaders());
+        this.setCustomHeadersIfAvailable(connection, param.headers);
 
         connection.setConnectTimeout(PrebidMobile.getTimeoutMillis());
         if (!(this instanceof FileDownloadTask)) {
@@ -288,9 +290,13 @@ public class BaseNetworkTask
         if ("POST".equals(param.requestType)) {
             // Send post request
             connection.setDoOutput(true);
-            DataOutputStream wr = null;
+            OutputStream wr = null;
             try {
-                wr = new DataOutputStream(connection.getOutputStream());
+                if (param.headers != null && param.headers.get("Content-Encoding") != null && param.headers.get("Content-Encoding").contains("gzip")) {
+                    wr = new GZIPOutputStream(connection.getOutputStream());
+                } else {
+                    wr = new DataOutputStream(connection.getOutputStream());
+                }
                 if (param.queryParams != null) {
                     sendRequest(param.queryParams, wr);
                 }
@@ -314,9 +320,9 @@ public class BaseNetworkTask
         }
     }
 
-    private void setCustomHeadersIfAvailable(URLConnection connection) {
-        if (!PrebidMobile.getCustomHeaders().isEmpty()) {
-            for (Map.Entry<String, String> customHeader : PrebidMobile.getCustomHeaders().entrySet()) {
+    private void setCustomHeadersIfAvailable(URLConnection connection, Map<String, String> headers) {
+        if (headers != null && !headers.isEmpty()) {
+            for (Map.Entry<String, String> customHeader : headers.entrySet()) {
                 connection.setRequestProperty(customHeader.getKey(), customHeader.getValue());
             }
         }
@@ -400,6 +406,7 @@ public class BaseNetworkTask
         public String name;
         public String userAgent;
         public String requestType;
+        public Map<String, String> headers;
     }
 
     public static class GetUrlResult extends BaseExceptionHolder {

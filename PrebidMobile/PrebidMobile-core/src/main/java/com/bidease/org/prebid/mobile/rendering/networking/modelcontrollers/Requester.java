@@ -23,7 +23,9 @@ import android.os.AsyncTask;
 import com.bidease.org.prebid.mobile.LogUtil;
 import com.bidease.org.prebid.mobile.api.exceptions.AdException;
 import com.bidease.org.prebid.mobile.configuration.AdUnitConfiguration;
+import com.bidease.org.prebid.mobile.rendering.bidding.data.bid.BidResponse;
 import com.bidease.org.prebid.mobile.rendering.listeners.AdIdFetchListener;
+import com.bidease.org.prebid.mobile.rendering.models.openrtb.BidRequest;
 import com.bidease.org.prebid.mobile.rendering.networking.BaseNetworkTask;
 import com.bidease.org.prebid.mobile.rendering.networking.ResponseHandler;
 import com.bidease.org.prebid.mobile.rendering.networking.parameters.AdRequestInput;
@@ -35,6 +37,8 @@ import com.bidease.org.prebid.mobile.rendering.networking.parameters.NetworkPara
 import com.bidease.org.prebid.mobile.rendering.networking.parameters.ParameterBuilder;
 import com.bidease.org.prebid.mobile.rendering.networking.parameters.UserConsentParameterBuilder;
 import com.bidease.org.prebid.mobile.rendering.networking.parameters.UserParameters;
+import com.bidease.org.prebid.mobile.rendering.networking.tracking.BideaseEvent;
+import com.bidease.org.prebid.mobile.rendering.networking.tracking.ServerConnection;
 import com.bidease.org.prebid.mobile.rendering.networking.urlBuilder.PathBuilderBase;
 import com.bidease.org.prebid.mobile.rendering.networking.urlBuilder.URLBuilder;
 import com.bidease.org.prebid.mobile.rendering.networking.urlBuilder.URLComponents;
@@ -195,7 +199,75 @@ public abstract class Requester {
         params.userAgent = AppInfoManager.getUserAgent();
         params.name = requestName;
 
-        networkTask = new BaseNetworkTask(adResponseCallBack);
+        BideaseEvent bideaseEvent = new BideaseEvent();
+        bideaseEvent.type = "request";
+        bideaseEvent.url = params.url;
+        BidRequest bidRequest = jsonUrlComponents.adRequestInput.getBidRequest();
+        bideaseEvent.requestId = bidRequest.getId();
+        if (bidRequest.getUser().id != null) {
+            bideaseEvent.uniqueId = bidRequest.getUser().id;
+        }
+        if (bidRequest.getDevice().ip != null) {
+            bideaseEvent.ipv4 = bidRequest.getDevice().ip;
+        }
+        if (bidRequest.getDevice().ipv6 != null) {
+            bideaseEvent.ipv6 = bidRequest.getDevice().ipv6;
+        }
+        ResponseHandler eventResponseHandler = new ResponseHandler() {
+            @Override
+            public void onResponse(BaseNetworkTask.GetUrlResult response) {
+
+            }
+
+            @Override
+            public void onError(String msg, long responseTime) {
+
+            }
+
+            @Override
+            public void onErrorWithException(Exception e, long responseTime) {
+
+            }
+        };
+
+        networkTask = new BaseNetworkTask(new ResponseHandler() {
+            @Override
+            public void onResponse(BaseNetworkTask.GetUrlResult response) {
+                BidResponse bidResponse = new BidResponse(response.responseString, adConfiguration);
+                if (bidResponse.getWinningBid() != null) {
+                    bideaseEvent.bidId = bidResponse.getWinningBid().getId();
+                }
+                bideaseEvent.duration = response.responseTime;
+                bideaseEvent.status = 0;
+                ServerConnection.fireBideaseEvent(bideaseEvent, eventResponseHandler);
+
+                if (adResponseCallBack != null) {
+                    adResponseCallBack.onResponse(response);
+                }
+            }
+
+            @Override
+            public void onError(String msg, long responseTime) {
+                bideaseEvent.duration = responseTime;
+                bideaseEvent.status = 1;
+                ServerConnection.fireBideaseEvent(bideaseEvent, eventResponseHandler);
+
+                if (adResponseCallBack != null) {
+                    adResponseCallBack.onError(msg, responseTime);
+                }
+            }
+
+            @Override
+            public void onErrorWithException(Exception e, long responseTime) {
+                bideaseEvent.duration = responseTime;
+                bideaseEvent.status = 2;
+                ServerConnection.fireBideaseEvent(bideaseEvent, eventResponseHandler);
+
+                if (adResponseCallBack != null) {
+                    adResponseCallBack.onErrorWithException(e, responseTime);
+                }
+            }
+        });
         networkTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, params);
     }
 
